@@ -16,5 +16,10 @@ fun main(args: Array<String>) {
     }
   }
 
-  println(tracks)
+  tracks.sortBy { it.startAt }
+
+  tracks.forEach {
+    println(it)
+  }
+  println(tracks.size)
 }
