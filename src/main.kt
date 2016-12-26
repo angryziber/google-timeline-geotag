@@ -21,12 +21,21 @@ fun main(arguments: Array<String>) {
   tracks.forEach { println(it) }
   println(tracks.size)
 
-  val images = ImageData.from(args.imageFiles, args.timeZone)
-      .filter {
-        !it.geoTagged.apply {
-          if (this) err.println("Already geotagged: ${it.file}")
-        }
-      }.toList().sortedBy { it.dateTime }
+  val images = args.imageFiles.map { file ->
+    try {
+      ImageData(file, args.timeZone)
+    }
+    catch (e: Exception) {
+      err.println("Failed to read exif from $file: $e")
+      null
+    }
+  }
+  .filterNotNull()
+  .filter {
+    !it.geoTagged.apply {
+      if (this) err.println("Already geotagged: ${it.file}")
+    }
+  }.toList().sortedBy { it.dateTime }
   images.forEach { println("${it.file} ${it.dateTime}") }
   println(images.size)
 }
