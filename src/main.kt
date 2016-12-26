@@ -25,10 +25,9 @@ fun main(args: Array<String>) {
   }
   println(tracks.size)
 
-  args.imageFiles.forEach { file ->
-    val imageData = ImageData(file, args.timeZone)
+  args.imageFiles.map { ImageData(it, args.timeZone) }.forEach {
     // TODO: skip already geotagged images
-    println("$file ${imageData.dateTime}")
+    println("${it.file} ${it.dateTime}")
   }
 }
 
@@ -46,7 +45,7 @@ data class Args(val kmlDir: File, val imageDir: File, val timeZone: ZoneId) {
   }
 
   val kmlFiles: Sequence<File>
-    get() = kmlDir.list().asSequence().filter { it.endsWith(".kml") || it.endsWith(".xml") }.map(::File)
+    get() = kmlDir.list().asSequence().filter { it.endsWith(".kml") || it.endsWith(".xml") }.map { File(kmlDir, it) }
 
   val imageFiles: Sequence<File>
     get() = imageDir.walkTopDown().filter { it.isFile }

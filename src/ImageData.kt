@@ -11,7 +11,7 @@ import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
-class ImageData(file: File, val timeZone: ZoneId) {
+class ImageData(val file: File, val timeZone: ZoneId) {
   companion object {
     val EXIF_DATETIME = DateTimeFormatter.ofPattern("yyyy:MM:dd HH:mm:ss")
   }
