@@ -40,6 +40,7 @@ data class Args(val kmlDir: File, val imageDir: File, val timeZone: ZoneId) {
         err.println("Local time-zone is: ${ZoneId.systemDefault()}, provide the one where the images were taken")
         System.exit(1)
       }
+      // TODO: we can detect timezones using the coordinates using https://github.com/drtimcooper/LatLongToTimezone
       return Args(File(args[0]), File(args[1]), ZoneId.of(args[2]))
     }
   }
