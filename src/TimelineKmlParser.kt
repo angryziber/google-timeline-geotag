@@ -3,28 +3,31 @@ import org.w3c.dom.NodeList
 import java.io.File
 import java.time.Duration
 import java.time.Instant
+import java.util.*
 import javax.xml.parsers.DocumentBuilderFactory
 
 class TimelineKmlParser {
   val documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder()
 
-  fun parse(file: File, callback: (String, String, Instant) -> Unit) {
+  fun parse(file: File): List<Placemark> {
+    val result = ArrayList<Placemark>()
     val document = documentBuilder.parse(file.inputStream())
     document.getElementsByTagName("Placemark").forEach { placemark ->
-      val name = placemark["name"].textContent
-      val begin = placemark["TimeSpan"]["begin"].instant
-      val end = placemark["TimeSpan"]["end"].instant
-      val coords = placemark.getElementsByTagName("gx:coord")
-      val diff = Duration.between(begin, end).dividedBy(coords.length.toLong())
+      val place = Placemark(placemark["name"].textContent,
+          placemark["TimeSpan"]["begin"].instant, placemark["TimeSpan"]["end"].instant)
 
-      println("$name: $begin - $end ($diff)")
-      var time = begin
+      val coords = placemark.getElementsByTagName("gx:coord")
+      val diff = Duration.between(place.begin, place.end).dividedBy(coords.length.toLong())
+
+      var time = place.begin
       coords.forEach {
         val (lat, lon) = it.textContent.split(' ')
-        callback(lat, lon, time)
+        place.track += TrackPoint(time, lat.toFloat(), lon.toFloat())
         time += diff
       }
+      result += place
     }
+    return result
   }
 
   inline fun NodeList.forEach(action: (Element) -> Unit) {
