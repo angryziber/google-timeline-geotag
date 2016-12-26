@@ -18,13 +18,15 @@ fun main(arguments: Array<String>) {
 
   tracks.sortBy { it.startAt }
 
-  tracks.forEach {
-    println(it)
-  }
+  tracks.forEach { println(it) }
   println(tracks.size)
 
-  args.imageFiles.map { ImageData(it, args.timeZone) }.forEach {
-    // TODO: skip already geotagged images
-    println("${it.file} ${it.dateTime}")
-  }
+  val images = args.imageFiles.map { ImageData(it, args.timeZone) }
+      .filter {
+        !it.geoTagged.apply {
+          if (this) err.println("Already geotagged: ${it.file}")
+        }
+      }.toList().sortedBy { it.dateTime }
+  images.forEach { println("${it.file} ${it.dateTime}") }
+  println(images.size)
 }

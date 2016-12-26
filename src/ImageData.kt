@@ -4,6 +4,7 @@ import org.apache.commons.imaging.formats.jpeg.JpegImageMetadata
 import org.apache.commons.imaging.formats.tiff.TiffField
 import org.apache.commons.imaging.formats.tiff.TiffImageMetadata
 import org.apache.commons.imaging.formats.tiff.constants.ExifTagConstants.EXIF_TAG_DATE_TIME_ORIGINAL
+import org.apache.commons.imaging.formats.tiff.constants.GpsTagConstants.GPS_TAG_GPS_LATITUDE
 import org.apache.commons.imaging.formats.tiff.taginfos.TagInfo
 import java.io.File
 import java.time.Instant
@@ -17,12 +18,10 @@ class ImageData(val file: File, val timeZone: ZoneId) {
   }
 
   val metadata = Imaging.getMetadata(file)
+  val dateTime = metadata[EXIF_TAG_DATE_TIME_ORIGINAL].instant
 
-  val dateTime: Instant
-    get() = metadata[EXIF_TAG_DATE_TIME_ORIGINAL].instant
-
-  private val TiffField?.instant: Instant
-    get() = LocalDateTime.parse(this?.stringValue, EXIF_DATETIME).atZone(timeZone).toInstant()
+  val geoTagged: Boolean
+    get() = metadata[GPS_TAG_GPS_LATITUDE] != null
 
   private operator fun ImageMetadata.get(tag: TagInfo): TiffField? {
     return when (this) {
@@ -31,4 +30,7 @@ class ImageData(val file: File, val timeZone: ZoneId) {
       else -> null
     }
   }
+
+  private val TiffField?.instant: Instant
+    get() = LocalDateTime.parse(this?.stringValue, EXIF_DATETIME).atZone(timeZone).toInstant()
 }
