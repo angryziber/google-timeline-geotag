@@ -21,7 +21,7 @@ fun main(arguments: Array<String>) {
   tracks.forEach { println(it) }
   println(tracks.size)
 
-  val images = args.imageFiles.map { ImageData(it, args.timeZone) }
+  val images = ImageData.from(args.imageFiles, args.timeZone)
       .filter {
         !it.geoTagged.apply {
           if (this) err.println("Already geotagged: ${it.file}")

@@ -15,6 +15,8 @@ import java.time.format.DateTimeFormatter
 class ImageData(val file: File, val timeZone: ZoneId) {
   companion object {
     val EXIF_DATETIME = DateTimeFormatter.ofPattern("yyyy:MM:dd HH:mm:ss")
+
+    fun from(files: Sequence<File>, timeZone: ZoneId) = files.map { ImageData(it, timeZone) }
   }
 
   val metadata = Imaging.getMetadata(file)
