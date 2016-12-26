@@ -1,9 +1,20 @@
 import java.io.File
+import java.lang.System.err
+import java.util.*
 
 fun main(args: Array<String>) {
-  val file = File("history-2016-11-05.xml")
+  val dir = File(".")
+  val parser = TimelineKmlParser()
+  val tracks = ArrayList<Track>(1000)
 
-  TimelineKmlParser().parse(file).forEach { track ->
-    println("$track")
+  dir.listFiles().filter { it.name.endsWith(".kml") || it.name.endsWith(".xml") }.forEach {
+    try {
+      tracks += parser.parse(it)
+    }
+    catch (e: Exception) {
+      err.println("Failed to parse $it: $e")
+    }
   }
+
+  println(tracks)
 }

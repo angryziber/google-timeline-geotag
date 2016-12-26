@@ -21,6 +21,7 @@ class TimelineKmlParser {
   }
 
   private fun Track.addPoints(coords: NodeList) {
+    if (coords.length == 0) return
     val timeStep = duration.dividedBy(coords.length.toLong())
     var time = startAt
     coords.forEach {
