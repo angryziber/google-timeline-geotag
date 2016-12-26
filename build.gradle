@@ -12,6 +12,9 @@ buildscript {
 
 repositories {
   mavenCentral()
+  maven {
+    url 'https://repository.apache.org/content/repositories/snapshots/'
+  }
 }
 
 apply plugin: 'kotlin'
@@ -29,4 +32,5 @@ sourceSets {
 
 dependencies {
   compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  compile 'org.apache.commons:commons-imaging:1.0-SNAPSHOT'
 }
