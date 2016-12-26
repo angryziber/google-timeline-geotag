@@ -1,12 +1,15 @@
+import java.time.Duration
 import java.time.Instant
 import java.util.*
 
-data class Placemark(
+data class Track(
     val name: String,
-    val begin: Instant,
-    val end: Instant,
+    val startAt: Instant,
+    val endAt: Instant,
     val track: MutableList<TrackPoint> = ArrayList()
-)
+) {
+  val duration = Duration.between(startAt, endAt)
+}
 
 data class TrackPoint(
     val time: Instant,

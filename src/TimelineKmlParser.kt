@@ -9,23 +9,23 @@ import javax.xml.parsers.DocumentBuilderFactory
 class TimelineKmlParser {
   val documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder()
 
-  fun parse(file: File): List<Placemark> {
-    val result = ArrayList<Placemark>()
+  fun parse(file: File): List<Track> {
+    val result = ArrayList<Track>()
     val document = documentBuilder.parse(file.inputStream())
     document.getElementsByTagName("Placemark").forEach { placemark ->
-      val place = Placemark(placemark["name"].textContent,
-          placemark["TimeSpan"]["begin"].instant, placemark["TimeSpan"]["end"].instant)
+      val timeSpan = placemark["TimeSpan"]
+      val track = Track(placemark["name"].textContent, timeSpan["begin"].instant, timeSpan["end"].instant)
 
       val coords = placemark.getElementsByTagName("gx:coord")
-      val diff = Duration.between(place.begin, place.end).dividedBy(coords.length.toLong())
+      val timeStep = track.duration.dividedBy(coords.length.toLong())
 
-      var time = place.begin
+      var time = track.startAt
       coords.forEach {
         val (lat, lon) = it.textContent.split(' ')
-        place.track += TrackPoint(time, lat.toFloat(), lon.toFloat())
-        time += diff
+        track.track += TrackPoint(time, lat.toFloat(), lon.toFloat())
+        time += timeStep
       }
-      result += place
+      result += track
     }
     return result
   }
