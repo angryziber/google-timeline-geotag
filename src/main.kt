@@ -1,5 +1,6 @@
 import java.io.File
 import java.lang.System.err
+import java.time.ZoneId
 import java.util.*
 
 fun main(args: Array<String>) {
@@ -24,10 +25,14 @@ fun main(args: Array<String>) {
   }
   println(tracks.size)
 
+  val timeZone = ZoneId.systemDefault()
   imageDir.walkTopDown().filter { it.isFile }.forEach { file ->
-    println(file)
+    val imageData = ImageData(file, timeZone)
+    // TODO: skip already geotagged images
+    println("$file ${imageData.dateTime}")
   }
 }
+
 
 private fun readArgs(args: Array<String>): List<File> {
   if (args.size < 2) {
