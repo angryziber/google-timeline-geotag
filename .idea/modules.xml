@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/google-timeline-geotag.iml" filepath="$PROJECT_DIR$/google-timeline-geotag.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/google-timeline-geotag.iml" filepath="$PROJECT_DIR$/.idea/modules/google-timeline-geotag.iml" />
     </modules>
   </component>
 </project>
