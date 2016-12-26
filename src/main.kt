@@ -23,6 +23,10 @@ fun main(args: Array<String>) {
     println(it)
   }
   println(tracks.size)
+
+  imageDir.walkTopDown().filter { it.isFile }.forEach { file ->
+    println(file)
+  }
 }
 
 private fun readArgs(args: Array<String>): List<File> {
