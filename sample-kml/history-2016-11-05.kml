@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+  <Document>
+    <name>Location history from 2016-11-05 to 2016-11-05</name>
+    <open>1</open>
+    <description></description>
+    <StyleMap id="multiTrack">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#multiTrack_n</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#multiTrack_h</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="multiTrack_n">
+      <IconStyle>
+        <Icon>
+          <href>https://earth.google.com/images/kml-icons/track-directional/track-0.png</href>
+        </Icon>
+      </IconStyle>
+      <LineStyle>
+        <color>99ffac59</color>
+        <width>6</width>
+      </LineStyle>
+    </Style>
+    <Style id="multiTrack_h">
+      <IconStyle>
+        <scale>1.2</scale>
+        <Icon>
+          <href>https://earth.google.com/images/kml-icons/track-directional/track-0.png</href>
+        </Icon>
+      </IconStyle>
+      <LineStyle>
+        <color>99ffac59</color>
+        <width>8</width>
+      </LineStyle>
+    </Style>
+    <Placemark>
+      <name>Zan View Hotel</name>
+      <address>Village of Kairo, Kiwengwa, Kiwengwa, Tanzania</address>
+      <ExtendedData>
+        <Data name="Email">
+          <value>anton.keks@gmail.com</value>
+        </Data>
+        <Data name="Category">
+          <value></value>
+        </Data>
+        <Data name="Distance">
+          <value>0</value>
+        </Data>
+      </ExtendedData>
+      <description>from 2016-11-04T19:51:54.108Z to 2016-11-05T06:16:16.406Z. Distance 0m</description>
+      <Point>
+        <coordinates></coordinates>
+      </Point>
+      <gx:Track>
+        <altitudeMode>clampToGround</altitudeMode>
+        <gx:coord>39.371541 -5.970615 0</gx:coord>
+      </gx:Track>
+      <TimeSpan>
+        <begin>2016-11-04T19:51:54.108Z</begin>
+        <end>2016-11-05T06:16:16.406Z</end>
+      </TimeSpan>
+    </Placemark>
+    <Placemark>
+      <name>Driving</name>
+      <address></address>
+      <ExtendedData>
+        <Data name="Email">
+          <value>anton.keks@gmail.com</value>
+        </Data>
+        <Data name="Category">
+          <value>Driving</value>
+        </Data>
+        <Data name="Distance">
+          <value>9203</value>
+        </Data>
+      </ExtendedData>
+      <description>Driving from 2016-11-05T06:16:16.406Z to 2016-11-05T06:36:55.886Z. Distance 9203m</description>
+      <Point>
+        <coordinates></coordinates>
+      </Point>
+      <gx:Track>
+        <altitudeMode>clampToGround</altitudeMode>
+        <gx:coord>39.371541 -5.970615 0</gx:coord>
+        <gx:coord>39.3716583 -5.9707482 0</gx:coord>
+        <gx:coord>39.3717742 -5.9705669 0</gx:coord>
+        <gx:coord>39.3722523 -5.978732 0</gx:coord>
+        <gx:coord>39.373041 -5.9867101 0</gx:coord>
+        <gx:coord>39.3728182 -5.9909078 0</gx:coord>
+        <gx:coord>39.3728291 -5.9909412 0</gx:coord>
+        <gx:coord>39.3728289 -5.9909412 0</gx:coord>
+        <gx:coord>39.3789016 -5.9955475 0</gx:coord>
+        <gx:coord>39.3820476 -6.0059673 0</gx:coord>
+        <gx:coord>39.3887809 -6.0139939 0</gx:coord>
+        <gx:coord>39.3954765 -6.0222198 0</gx:coord>
+        <gx:coord>39.4025052 -6.031909 0</gx:coord>
+        <gx:coord>39.4045379 -6.0373553 0</gx:coord>
+        <gx:coord>39.4065837 -6.0417636 0</gx:coord>
+        <gx:coord>39.409613199999995 -6.041627 0</gx:coord>
+      </gx:Track>
+      <TimeSpan>
+        <begin>2016-11-05T06:16:16.406Z</begin>
+        <end>2016-11-05T06:36:55.886Z</end>
+      </TimeSpan>
+    </Placemark>
+    <Placemark>
+      <name></name>
+      <address>Pongwe island zanzibar, Pongwe, Tanzania</address>
+      <ExtendedData>
+        <Data name="Email">
+          <value>anton.keks@gmail.com</value>
+        </Data>
+        <Data name="Category">
+          <value></value>
+        </Data>
+        <Data name="Distance">
+          <value>0</value>
+        </Data>
+      </ExtendedData>
+      <description>from 2016-11-05T06:36:55.886Z to 2016-11-05T07:04:02.961Z. Distance 0m</description>
+      <Point>
+        <coordinates></coordinates>
+      </Point>
+      <gx:Track>
+        <altitudeMode>clampToGround</altitudeMode>
+        <gx:coord>39.409613199999995 -6.041627 0</gx:coord>
+      </gx:Track>
+      <TimeSpan>
+        <begin>2016-11-05T06:36:55.886Z</begin>
+        <end>2016-11-05T07:04:02.961Z</end>
+      </TimeSpan>
+    </Placemark>
+    <Placemark>
+      <name>Driving</name>
+      <address></address>
+      <ExtendedData>
+        <Data name="Email">
+          <value>anton.keks@gmail.com</value>
+        </Data>
+        <Data name="Category">
+          <value>Driving</value>
+        </Data>
+        <Data name="Distance">
+          <value>15451</value>
+        </Data>
+      </ExtendedData>
+      <description>Driving from 2016-11-05T07:04:02.961Z to 2016-11-05T07:46:22.805Z. Distance 15451m</description>
+      <Point>
+        <coordinates></coordinates>
+      </Point>
+      <gx:Track>
+        <altitudeMode>clampToGround</altitudeMode>
+        <gx:coord>39.409613199999995 -6.041627 0</gx:coord>
+        <gx:coord>39.4067994 -6.0420599 0</gx:coord>
+        <gx:coord>39.4050481 -6.0456963 0</gx:coord>
+        <gx:coord>39.4086863 -6.0543513 0</gx:coord>
+        <gx:coord>39.4153852 -6.0588331 0</gx:coord>
+        <gx:coord>39.4207479 -6.0675685 0</gx:coord>
+        <gx:coord>39.4265398 -6.0770555 0</gx:coord>
+        <gx:coord>39.4242212 -6.0881042 0</gx:coord>
+        <gx:coord>39.4236006 -6.0941059 0</gx:coord>
+        <gx:coord>39.4247775 -6.1027583 0</gx:coord>
+        <gx:coord>39.4251886 -6.1111301 0</gx:coord>
+        <gx:coord>39.4234689 -6.1219097 0</gx:coord>
+        <gx:coord>39.423852 -6.1305301 0</gx:coord>
+        <gx:coord>39.4238108 -6.131004 0</gx:coord>
+        <gx:coord>39.4238258 -6.1310013 0</gx:coord>
+        <gx:coord>39.4238396 -6.1310286 0</gx:coord>
+        <gx:coord>39.4237862 -6.1310087 0</gx:coord>
+        <gx:coord>39.4237964 -6.1310977 0</gx:coord>
+        <gx:coord>39.4239873 -6.1312328 0</gx:coord>
+        <gx:coord>39.4253092 -6.1386478 0</gx:coord>
+        <gx:coord>39.4283408 -6.1496222 0</gx:coord>
+        <gx:coord>39.4290949 -6.162392 0</gx:coord>
+        <gx:coord>39.4356885 -6.1650074 0</gx:coord>
+        <gx:coord>39.4377179 -6.1665633 0</gx:coord>
+        <gx:coord>39.4366937 -6.1658564 0</gx:coord>
+      </gx:Track>
+      <TimeSpan>
+        <begin>2016-11-05T07:04:02.961Z</begin>
+        <end>2016-11-05T07:46:22.805Z</end>
+      </TimeSpan>
+    </Placemark>
+    <Placemark>
+      <name>Zanzibar Institute of Financial Administration (ZIFA)</name>
+      <address>Chwaka, Tanzania</address>
+      <ExtendedData>
+        <Data name="Email">
+          <value>anton.keks@gmail.com</value>
+        </Data>
+        <Data name="Category">
+          <value>University</value>
+        </Data>
+        <Data name="Distance">
+          <value>0</value>
+        </Data>
+      </ExtendedData>
+      <description>University from 2016-11-05T07:46:22.805Z to 2016-11-05T08:01:20.406Z. Distance 0m</description>
+      <Point>
+        <coordinates></coordinates>
+      </Point>
+      <gx:Track>
+        <altitudeMode>clampToGround</altitudeMode>
+        <gx:coord>39.4366937 -6.1658564 0</gx:coord>
+      </gx:Track>
+      <TimeSpan>
+        <begin>2016-11-05T07:46:22.805Z</begin>
+        <end>2016-11-05T08:01:20.406Z</end>
+      </TimeSpan>
+    </Placemark>
+    <Placemark>
+      <name>Driving</name>
+      <address></address>
+      <ExtendedData>
+        <Data name="Email">
+          <value>anton.keks@gmail.com</value>
+        </Data>
+        <Data name="Category">
+          <value>Driving</value>
+        </Data>
+        <Data name="Distance">
+          <value>27785</value>
+        </Data>
+      </ExtendedData>
+      <description>Driving from 2016-11-05T08:01:20.406Z to 2016-11-05T09:06:50.833Z. Distance 27785m</description>
+      <Point>
+        <coordinates></coordinates>
+      </Point>
+      <gx:Track>
+        <altitudeMode>clampToGround</altitudeMode>
+        <gx:coord>39.4366937 -6.1658564 0</gx:coord>
+        <gx:coord>39.4372375 -6.1656637 0</gx:coord>
+        <gx:coord>39.4367717 -6.1647221 0</gx:coord>
+        <gx:coord>39.4294537 -6.165119 0</gx:coord>
+        <gx:coord>39.4279742 -6.1645694 0</gx:coord>
+        <gx:coord>39.4277161 -6.1646283 0</gx:coord>
+        <gx:coord>39.4286591 -6.1651232 0</gx:coord>
+        <gx:coord>39.4188656 -6.1653173 0</gx:coord>
+        <gx:coord>39.407814 -6.1706798 0</gx:coord>
+        <gx:coord>39.3953332 -6.1739452 0</gx:coord>
+        <gx:coord>39.3895738 -6.1741646 0</gx:coord>
+        <gx:coord>39.3896638 -6.1744199 0</gx:coord>
+        <gx:coord>39.3896388 -6.1744291 0</gx:coord>
+        <gx:coord>39.3896388 -6.1744294 0</gx:coord>
+        <gx:coord>39.3896386 -6.1744299 0</gx:coord>
+        <gx:coord>39.3896388 -6.1744299 0</gx:coord>
+        <gx:coord>39.3872604 -6.174756 0</gx:coord>
+        <gx:coord>39.3767922 -6.1769476 0</gx:coord>
+        <gx:coord>39.3674544 -6.174567 0</gx:coord>
+        <gx:coord>39.3590834 -6.1692889 0</gx:coord>
+        <gx:coord>39.3522971 -6.1652278 0</gx:coord>
+        <gx:coord>39.3522 -6.1651644 0</gx:coord>
+        <gx:coord>39.3521985 -6.1651615 0</gx:coord>
+        <gx:coord>39.3500708 -6.1635631 0</gx:coord>
+        <gx:coord>39.3411239 -6.1548385 0</gx:coord>
+        <gx:coord>39.3342493 -6.1457721 0</gx:coord>
+        <gx:coord>39.3268875 -6.1408326 0</gx:coord>
+        <gx:coord>39.3271575 -6.1410462 0</gx:coord>
+        <gx:coord>39.327137 -6.141039 0</gx:coord>
+        <gx:coord>39.3257663 -6.138696 0</gx:coord>
+        <gx:coord>39.3202659 -6.1335601 0</gx:coord>
+        <gx:coord>39.3092205 -6.1302092 0</gx:coord>
+        <gx:coord>39.2988989 -6.1316339 0</gx:coord>
+        <gx:coord>39.288154 -6.1368146 0</gx:coord>
+        <gx:coord>39.2881417 -6.1367202 0</gx:coord>
+        <gx:coord>39.2881544 -6.1367189 0</gx:coord>
+        <gx:coord>39.2852112 -6.1392325 0</gx:coord>
+        <gx:coord>39.2751747 -6.1423637 0</gx:coord>
+        <gx:coord>39.2694284 -6.1461358 0</gx:coord>
+        <gx:coord>39.2694464 -6.1461237 0</gx:coord>
+        <gx:coord>39.2694292 -6.1461212 0</gx:coord>
+        <gx:coord>39.2581126 -6.1482686 0</gx:coord>
+        <gx:coord>39.2554029 -6.1483536 0</gx:coord>
+        <gx:coord>39.2538157 -6.1443925 0</gx:coord>
+        <gx:coord>39.253512 -6.1349722 0</gx:coord>
+        <gx:coord>39.2544507 -6.1240269 0</gx:coord>
+        <gx:coord>39.2547646 -6.1203239 0</gx:coord>
+        <gx:coord>39.2547706 -6.1202994 0</gx:coord>
+        <gx:coord>39.2547566 -6.1202683 0</gx:coord>
+        <gx:coord>39.2547533 -6.12027 0</gx:coord>
+        <gx:coord>39.2528938 -6.1102109 0</gx:coord>
+        <gx:coord>39.2519092 -6.106702 0</gx:coord>
+        <gx:coord>39.252835399999995 -6.1049904999999995 0</gx:coord>
+      </gx:Track>
+      <TimeSpan>
+        <begin>2016-11-05T08:01:20.406Z</begin>
+        <end>2016-11-05T09:06:50.833Z</end>
+      </TimeSpan>
+    </Placemark>
+    <Placemark>
+      <name>Tangawizi Spice Farm</name>
+      <address>Near Dole Mosque, Tanzania</address>
+      <ExtendedData>
+        <Data name="Email">
+          <value>anton.keks@gmail.com</value>
+        </Data>
+        <Data name="Category">
+          <value>Spice Store</value>
+        </Data>
+        <Data name="Distance">
+          <value>0</value>
+        </Data>
+      </ExtendedData>
+      <description>Spice Store from 2016-11-05T09:06:50.833Z to 2016-11-05T10:57:57.833Z. Distance 0m</description>
+      <Point>
+        <coordinates></coordinates>
+      </Point>
+      <gx:Track>
+        <altitudeMode>clampToGround</altitudeMode>
+        <gx:coord>39.252835399999995 -6.1049904999999995 0</gx:coord>
+      </gx:Track>
+      <TimeSpan>
+        <begin>2016-11-05T09:06:50.833Z</begin>
+        <end>2016-11-05T10:57:57.833Z</end>
+      </TimeSpan>
+    </Placemark>
+    <Placemark>
+      <name>Driving</name>
+      <address></address>
+      <ExtendedData>
+        <Data name="Email">
+          <value>anton.keks@gmail.com</value>
+        </Data>
+        <Data name="Category">
+          <value>Driving</value>
+        </Data>
+        <Data name="Distance">
+          <value>9901</value>
+        </Data>
+      </ExtendedData>
+      <description>Driving from 2016-11-05T10:57:57.833Z to 2016-11-05T11:32:06.833Z. Distance 9901m</description>
+      <Point>
+        <coordinates></coordinates>
+      </Point>
+      <gx:Track>
+        <altitudeMode>clampToGround</altitudeMode>
+        <gx:coord>39.252835399999995 -6.1049904999999995 0</gx:coord>
+        <gx:coord>39.2521139 -6.1069702 0</gx:coord>
+        <gx:coord>39.2527138 -6.1006679 0</gx:coord>
+        <gx:coord>39.2526934 -6.1006766 0</gx:coord>
+        <gx:coord>39.2530196 -6.0966446 0</gx:coord>
+        <gx:coord>39.2450186 -6.0899954 0</gx:coord>
+        <gx:coord>39.2342121 -6.0910972 0</gx:coord>
+        <gx:coord>39.2276425 -6.0932999 0</gx:coord>
+        <gx:coord>39.2276544 -6.0933231 0</gx:coord>
+        <gx:coord>39.2276535 -6.0933235 0</gx:coord>
+        <gx:coord>39.2276537 -6.093324 0</gx:coord>
+        <gx:coord>39.2276243 -6.0933308 0</gx:coord>
+        <gx:coord>39.2241116 -6.0955993 0</gx:coord>
+        <gx:coord>39.2176087 -6.1045147 0</gx:coord>
+        <gx:coord>39.2176252 -6.1045142 0</gx:coord>
+        <gx:coord>39.2176254 -6.1045139 0</gx:coord>
+        <gx:coord>39.2176254 -6.1045138 0</gx:coord>
+        <gx:coord>39.2176292 -6.1045148 0</gx:coord>
+        <gx:coord>39.2155189 -6.1101762 0</gx:coord>
+        <gx:coord>39.2143286 -6.1115165 0</gx:coord>
+        <gx:coord>39.2142163 -6.1216136 0</gx:coord>
+        <gx:coord>39.215829 -6.1290524 0</gx:coord>
+        <gx:coord>39.2159997 -6.1331263 0</gx:coord>
+        <gx:coord>39.2130262 -6.1380149 0</gx:coord>
+        <gx:coord>39.21314569600465 -6.138142053186739 0</gx:coord>
+      </gx:Track>
+      <TimeSpan>
+        <begin>2016-11-05T10:57:57.833Z</begin>
+        <end>2016-11-05T11:32:06.833Z</end>
+      </TimeSpan>
+    </Placemark>
+    <Placemark>
+      <name>Saateni</name>
+      <address>Zanzibar Town, Tanzania</address>
+      <ExtendedData>
+        <Data name="Email">
+          <value>anton.keks@gmail.com</value>
+        </Data>
+        <Data name="Category">
+          <value>Sublocality1</value>
+        </Data>
+        <Data name="Distance">
+          <value>0</value>
+        </Data>
+      </ExtendedData>
+      <description>Sublocality1 from 2016-11-05T11:32:06.833Z to 2016-11-05T11:55:42.833Z. Distance 0m</description>
+      <Point>
+        <coordinates></coordinates>
+      </Point>
+      <gx:Track>
+        <altitudeMode>clampToGround</altitudeMode>
+        <gx:coord>39.2141665 -6.1464811 0</gx:coord>
+      </gx:Track>
+      <TimeSpan>
+        <begin>2016-11-05T11:32:06.833Z</begin>
+        <end>2016-11-05T11:55:42.833Z</end>
+      </TimeSpan>
+    </Placemark>
+    <Placemark>
+      <name>Driving</name>
+      <address></address>
+      <ExtendedData>
+        <Data name="Email">
+          <value>anton.keks@gmail.com</value>
+        </Data>
+        <Data name="Category">
+          <value>Driving</value>
+        </Data>
+        <Data name="Distance">
+          <value>3426</value>
+        </Data>
+      </ExtendedData>
+      <description>Driving from 2016-11-05T11:55:42.833Z to 2016-11-05T12:11:14.387Z. Distance 3426m</description>
+      <Point>
+        <coordinates></coordinates>
+      </Point>
+      <gx:Track>
+        <altitudeMode>clampToGround</altitudeMode>
+        <gx:coord>39.21314569600465 -6.138142053186739 0</gx:coord>
+        <gx:coord>39.212519 -6.1385655 0</gx:coord>
+        <gx:coord>39.2113491 -6.1450441 0</gx:coord>
+        <gx:coord>39.2102776 -6.1480092 0</gx:coord>
+        <gx:coord>39.2100023 -6.1488417 0</gx:coord>
+        <gx:coord>39.2046326 -6.1568508 0</gx:coord>
+        <gx:coord>39.1982693 -6.1588272 0</gx:coord>
+        <gx:coord>39.1961235 -6.158548 0</gx:coord>
+        <gx:coord>39.1961324 -6.1585428 0</gx:coord>
+        <gx:coord>39.1952291 -6.1580472 0</gx:coord>
+        <gx:coord>39.1950333 -6.1573069 0</gx:coord>
+        <gx:coord>39.1947985 -6.1566582 0</gx:coord>
+      </gx:Track>
+      <TimeSpan>
+        <begin>2016-11-05T11:55:42.833Z</begin>
+        <end>2016-11-05T12:11:14.387Z</end>
+      </TimeSpan>
+    </Placemark>
+    <Placemark>
+      <name>Warere Town House</name>
+      <address>Mizingani Rd, Zanzibar Town, Tanzania</address>
+      <ExtendedData>
+        <Data name="Email">
+          <value>anton.keks@gmail.com</value>
+        </Data>
+        <Data name="Category">
+          <value>Hotel</value>
+        </Data>
+        <Data name="Distance">
+          <value>0</value>
+        </Data>
+      </ExtendedData>
+      <description>Hotel from 2016-11-05T12:11:14.387Z to 2016-11-05T12:32:45.825Z. Distance 0m</description>
+      <Point>
+        <coordinates></coordinates>
+      </Point>
+      <gx:Track>
+        <altitudeMode>clampToGround</altitudeMode>
+        <gx:coord>39.1947985 -6.1566582 0</gx:coord>
+      </gx:Track>
+      <TimeSpan>
+        <begin>2016-11-05T12:11:14.387Z</begin>
+        <end>2016-11-05T12:32:45.825Z</end>
+      </TimeSpan>
+    </Placemark>
+    <Placemark>
+      <name>Walking</name>
+      <address></address>
+      <ExtendedData>
+        <Data name="Email">
+          <value>anton.keks@gmail.com</value>
+        </Data>
+        <Data name="Category">
+          <value>Walking</value>
+        </Data>
+        <Data name="Distance">
+          <value>3172</value>
+        </Data>
+      </ExtendedData>
+      <description>Walking from 2016-11-05T12:32:45.825Z to 2016-11-05T14:51:31.714Z. Distance 3172m</description>
+      <Point>
+        <coordinates></coordinates>
+      </Point>
+      <gx:Track>
+        <altitudeMode>clampToGround</altitudeMode>
+        <gx:coord>39.1947985 -6.1566582 0</gx:coord>
+        <gx:coord>39.1943665 -6.1566384 0</gx:coord>
+        <gx:coord>39.1945513 -6.1567895 0</gx:coord>
+        <gx:coord>39.1918833 -6.1594504 0</gx:coord>
+        <gx:coord>39.192236 -6.1583531 0</gx:coord>
+        <gx:coord>39.1911666 -6.1596202 0</gx:coord>
+        <gx:coord>39.1910681 -6.1596529 0</gx:coord>
+        <gx:coord>39.1910059 -6.1596994 0</gx:coord>
+        <gx:coord>39.1891471 -6.160833 0</gx:coord>
+        <gx:coord>39.1892234 -6.1609359 0</gx:coord>
+        <gx:coord>39.1891556 -6.1609033 0</gx:coord>
+        <gx:coord>39.189131 -6.1609201 0</gx:coord>
+        <gx:coord>39.1889895 -6.161055 0</gx:coord>
+        <gx:coord>39.188932 -6.1610597 0</gx:coord>
+        <gx:coord>39.1878487 -6.1620557 0</gx:coord>
+        <gx:coord>39.1876784 -6.1621686 0</gx:coord>
+        <gx:coord>39.1876865 -6.1627366 0</gx:coord>
+        <gx:coord>39.1870262 -6.1648394 0</gx:coord>
+        <gx:coord>39.1870205 -6.1648122 0</gx:coord>
+        <gx:coord>39.187062 -6.1647856 0</gx:coord>
+        <gx:coord>39.1893273 -6.1664332 0</gx:coord>
+        <gx:coord>39.1894617 -6.1665101 0</gx:coord>
+        <gx:coord>39.1894626 -6.1664932 0</gx:coord>
+        <gx:coord>39.1893916 -6.1664461 0</gx:coord>
+        <gx:coord>39.1892957 -6.1663917 0</gx:coord>
+        <gx:coord>39.1892833 -6.1663933 0</gx:coord>
+        <gx:coord>39.1892835 -6.166384 0</gx:coord>
+        <gx:coord>39.1893951 -6.1660769 0</gx:coord>
+        <gx:coord>39.1892521 -6.166162 0</gx:coord>
+        <gx:coord>39.189107 -6.1661841 0</gx:coord>
+        <gx:coord>39.1890871 -6.1661946 0</gx:coord>
+        <gx:coord>39.1890937 -6.1661804 0</gx:coord>
+        <gx:coord>39.1881524 -6.1649953 0</gx:coord>
+        <gx:coord>39.1878485 -6.1648904 0</gx:coord>
+        <gx:coord>39.1890594 -6.1661994 0</gx:coord>
+        <gx:coord>39.1865849 -6.1640352 0</gx:coord>
+        <gx:coord>39.1858632 -6.1639609 0</gx:coord>
+        <gx:coord>39.1859145 -6.1638602 0</gx:coord>
+        <gx:coord>39.185915 -6.1638602 0</gx:coord>
+        <gx:coord>39.1859156 -6.1638604 0</gx:coord>
+        <gx:coord>39.1859179 -6.1638597 0</gx:coord>
+        <gx:coord>39.1859191 -6.1638599 0</gx:coord>
+        <gx:coord>39.1859203 -6.1638602 0</gx:coord>
+        <gx:coord>39.1872041 -6.1613657 0</gx:coord>
+        <gx:coord>39.18756595905085 -6.161781066479193 0</gx:coord>
+      </gx:Track>
+      <TimeSpan>
+        <begin>2016-11-05T12:32:45.825Z</begin>
+        <end>2016-11-05T14:51:31.714Z</end>
+      </TimeSpan>
+    </Placemark>
+    <Placemark>
+      <name>Shangani</name>
+      <address>Zanzibar Town, Tanzania</address>
+      <ExtendedData>
+        <Data name="Email">
+          <value>anton.keks@gmail.com</value>
+        </Data>
+        <Data name="Category">
+          <value>Neighborhood</value>
+        </Data>
+        <Data name="Distance">
+          <value>0</value>
+        </Data>
+      </ExtendedData>
+      <description>Neighborhood from 2016-11-05T14:51:31.714Z to 2016-11-05T15:30:40.488Z. Distance 0m</description>
+      <Point>
+        <coordinates></coordinates>
+      </Point>
+      <gx:Track>
+        <altitudeMode>clampToGround</altitudeMode>
+        <gx:coord>39.1865491 -6.1629685 0</gx:coord>
+      </gx:Track>
+      <TimeSpan>
+        <begin>2016-11-05T14:51:31.714Z</begin>
+        <end>2016-11-05T15:30:40.488Z</end>
+      </TimeSpan>
+    </Placemark>
+    <Placemark>
+      <name>Walking</name>
+      <address></address>
+      <ExtendedData>
+        <Data name="Email">
+          <value>anton.keks@gmail.com</value>
+        </Data>
+        <Data name="Category">
+          <value>Walking</value>
+        </Data>
+        <Data name="Distance">
+          <value>490</value>
+        </Data>
+      </ExtendedData>
+      <description>Walking from 2016-11-05T15:30:40.488Z to 2016-11-05T15:43:42.320Z. Distance 490m</description>
+      <Point>
+        <coordinates></coordinates>
+      </Point>
+      <gx:Track>
+        <altitudeMode>clampToGround</altitudeMode>
+        <gx:coord>39.18756595905085 -6.161781066479193 0</gx:coord>
+        <gx:coord>39.1889635 -6.1622642 0</gx:coord>
+        <gx:coord>39.1895124 -6.1617492 0</gx:coord>
+        <gx:coord>39.189708 -6.1622472 0</gx:coord>
+        <gx:coord>39.1909903 -6.1622236 0</gx:coord>
+        <gx:coord>39.1910487 -6.1624348 0</gx:coord>
+        <gx:coord>39.1910631 -6.1624611 0</gx:coord>
+        <gx:coord>39.1910486 -6.162594 0</gx:coord>
+        <gx:coord>39.1914887 -6.1633835999999995 0</gx:coord>
+      </gx:Track>
+      <TimeSpan>
+        <begin>2016-11-05T15:30:40.488Z</begin>
+        <end>2016-11-05T15:43:42.320Z</end>
+      </TimeSpan>
+    </Placemark>
+    <Placemark>
+      <name>Lukmaan Restaurant</name>
+      <address>The Mkunazini Baobab tree, New Mkunazini Rd, Zanzibar Town, Tanzania</address>
+      <ExtendedData>
+        <Data name="Email">
+          <value>anton.keks@gmail.com</value>
+        </Data>
+        <Data name="Category">
+          <value>Restaurant</value>
+        </Data>
+        <Data name="Distance">
+          <value>0</value>
+        </Data>
+      </ExtendedData>
+      <description>Restaurant from 2016-11-05T15:43:42.320Z to 2016-11-05T16:32:24.320Z. Distance 0m</description>
+      <Point>
+        <coordinates></coordinates>
+      </Point>
+      <gx:Track>
+        <altitudeMode>clampToGround</altitudeMode>
+        <gx:coord>39.1914887 -6.1633835999999995 0</gx:coord>
+      </gx:Track>
+      <TimeSpan>
+        <begin>2016-11-05T15:43:42.320Z</begin>
+        <end>2016-11-05T16:32:24.320Z</end>
+      </TimeSpan>
+    </Placemark>
+    <Placemark>
+      <name>Walking</name>
+      <address></address>
+      <ExtendedData>
+        <Data name="Email">
+          <value>anton.keks@gmail.com</value>
+        </Data>
+        <Data name="Category">
+          <value>Walking</value>
+        </Data>
+        <Data name="Distance">
+          <value>963</value>
+        </Data>
+      </ExtendedData>
+      <description>Walking from 2016-11-05T16:32:24.320Z to 2016-11-05T16:55:52.564Z. Distance 963m</description>
+      <Point>
+        <coordinates></coordinates>
+      </Point>
+      <gx:Track>
+        <altitudeMode>clampToGround</altitudeMode>
+        <gx:coord>39.1914887 -6.1633835999999995 0</gx:coord>
+        <gx:coord>39.1926792 -6.1635871 0</gx:coord>
+        <gx:coord>39.1932034 -6.1640267 0</gx:coord>
+        <gx:coord>39.1938243 -6.1624508 0</gx:coord>
+        <gx:coord>39.1937629 -6.1622934 0</gx:coord>
+        <gx:coord>39.1946815 -6.160438 0</gx:coord>
+        <gx:coord>39.1955339 -6.15831 0</gx:coord>
+        <gx:coord>39.1953778 -6.1581121 0</gx:coord>
+        <gx:coord>39.1952882 -6.1580582 0</gx:coord>
+        <gx:coord>39.1947137 -6.1567754 0</gx:coord>
+        <gx:coord>39.1947985 -6.1566582 0</gx:coord>
+      </gx:Track>
+      <TimeSpan>
+        <begin>2016-11-05T16:32:24.320Z</begin>
+        <end>2016-11-05T16:55:52.564Z</end>
+      </TimeSpan>
+    </Placemark>
+    <Placemark>
+      <name>Warere Town House</name>
+      <address>Mizingani Rd, Zanzibar Town, Tanzania</address>
+      <ExtendedData>
+        <Data name="Email">
+          <value>anton.keks@gmail.com</value>
+        </Data>
+        <Data name="Category">
+          <value>Hotel</value>
+        </Data>
+        <Data name="Distance">
+          <value>0</value>
+        </Data>
+      </ExtendedData>
+      <description>Hotel from 2016-11-05T16:55:52.564Z to 2016-11-06T03:21:31.638Z. Distance 0m</description>
+      <Point>
+        <coordinates></coordinates>
+      </Point>
+      <gx:Track>
+        <altitudeMode>clampToGround</altitudeMode>
+        <gx:coord>39.1947985 -6.1566582 0</gx:coord>
+      </gx:Track>
+      <TimeSpan>
+        <begin>2016-11-05T16:55:52.564Z</begin>
+        <end>2016-11-06T03:21:31.638Z</end>
+      </TimeSpan>
+    </Placemark>
+  </Document>
+</kml>

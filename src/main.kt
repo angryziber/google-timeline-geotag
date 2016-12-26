@@ -3,11 +3,12 @@ import java.lang.System.err
 import java.util.*
 
 fun main(args: Array<String>) {
-  val dir = File(".")
+  val (kmlDir, imageDir) = readArgs(args)
+
   val parser = TimelineKmlParser()
   val tracks = ArrayList<Track>(1000)
 
-  dir.listFiles().filter { it.name.endsWith(".kml") || it.name.endsWith(".xml") }.forEach {
+  kmlDir.listFiles().filter { it.name.endsWith(".kml") || it.name.endsWith(".xml") }.forEach {
     try {
       tracks += parser.parse(it)
     }
@@ -22,4 +23,12 @@ fun main(args: Array<String>) {
     println(it)
   }
   println(tracks.size)
+}
+
+private fun readArgs(args: Array<String>): List<File> {
+  if (args.size < 2) {
+    err.println("Usage: <kml-dir> <image-dir>")
+    System.exit(1)
+  }
+  return args.map { File(it) }
 }
