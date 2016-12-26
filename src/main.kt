@@ -1,41 +1,11 @@
-import java.lang.System.err
-import java.util.*
-
 fun main(arguments: Array<String>) {
-  val args = Args.parse(arguments)
+  val app = App(Args.parse(arguments))
 
-  val parser = TimelineKmlParser()
-  val tracks = ArrayList<Track>(1000)
-
-  args.kmlFiles.forEach { file ->
-    try {
-      tracks += parser.parse(file)
-    }
-    catch (e: Exception) {
-      err.println("Failed to parse $file: $e")
-    }
-  }
-
-  tracks.sortBy { it.startAt }
-
+  val tracks = app.readKmlTracks()
   tracks.forEach { println(it) }
   println(tracks.size)
 
-  val images = args.imageFiles.map { file ->
-    try {
-      ImageData(file, args.timeZone)
-    }
-    catch (e: Exception) {
-      err.println("Failed to read exif from $file: $e")
-      null
-    }
-  }
-  .filterNotNull()
-  .filter {
-    !it.geoTagged.apply {
-      if (this) err.println("Already geotagged: ${it.file}")
-    }
-  }.toList().sortedBy { it.dateTime }
+  val images = app.readImages()
   images.forEach { println("${it.file} ${it.dateTime}") }
   println(images.size)
 }
