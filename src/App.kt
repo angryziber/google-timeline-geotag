@@ -1,6 +1,5 @@
 import java.time.Instant
 import java.util.*
-import kotlin.system.measureNanoTime
 
 class App(val args: Args) {
   fun readKmlTracks(): List<Track> {
