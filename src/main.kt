@@ -9,12 +9,12 @@ fun main(args: Array<String>) {
   val parser = TimelineKmlParser()
   val tracks = ArrayList<Track>(1000)
 
-  args.kmlDir.listFiles().filter { it.name.endsWith(".kml") || it.name.endsWith(".xml") }.forEach {
+  args.kmlFiles.forEach { file ->
     try {
-      tracks += parser.parse(it)
+      tracks += parser.parse(file)
     }
     catch (e: Exception) {
-      err.println("Failed to parse $it: $e")
+      err.println("Failed to parse $file: $e")
     }
   }
 
@@ -25,7 +25,7 @@ fun main(args: Array<String>) {
   }
   println(tracks.size)
 
-  args.imageDir.walkTopDown().filter { it.isFile }.forEach { file ->
+  args.imageFiles.forEach { file ->
     val imageData = ImageData(file, args.timeZone)
     // TODO: skip already geotagged images
     println("$file ${imageData.dateTime}")
@@ -43,4 +43,10 @@ data class Args(val kmlDir: File, val imageDir: File, val timeZone: ZoneId) {
       return Args(File(args[0]), File(args[1]), ZoneId.of(args[2]))
     }
   }
+
+  val kmlFiles: Sequence<File>
+    get() = kmlDir.list().asSequence().filter { it.endsWith(".kml") || it.endsWith(".xml") }.map(::File)
+
+  val imageFiles: Sequence<File>
+    get() = imageDir.walkTopDown().filter { it.isFile }
 }
