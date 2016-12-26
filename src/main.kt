@@ -34,5 +34,5 @@ private fun readArgs(args: Array<String>): List<File> {
     err.println("Usage: <kml-dir> <image-dir>")
     System.exit(1)
   }
-  return args.map { File(it) }
+  return args.map(::File)
 }
