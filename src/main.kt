@@ -4,12 +4,12 @@ import java.time.ZoneId
 import java.util.*
 
 fun main(args: Array<String>) {
-  val (kmlDir, imageDir) = readArgs(args)
+  val args = Args.parse(args)
 
   val parser = TimelineKmlParser()
   val tracks = ArrayList<Track>(1000)
 
-  kmlDir.listFiles().filter { it.name.endsWith(".kml") || it.name.endsWith(".xml") }.forEach {
+  args.kmlDir.listFiles().filter { it.name.endsWith(".kml") || it.name.endsWith(".xml") }.forEach {
     try {
       tracks += parser.parse(it)
     }
@@ -25,19 +25,22 @@ fun main(args: Array<String>) {
   }
   println(tracks.size)
 
-  val timeZone = ZoneId.systemDefault()
-  imageDir.walkTopDown().filter { it.isFile }.forEach { file ->
-    val imageData = ImageData(file, timeZone)
+  args.imageDir.walkTopDown().filter { it.isFile }.forEach { file ->
+    val imageData = ImageData(file, args.timeZone)
     // TODO: skip already geotagged images
     println("$file ${imageData.dateTime}")
   }
 }
 
-
-private fun readArgs(args: Array<String>): List<File> {
-  if (args.size < 2) {
-    err.println("Usage: <kml-dir> <image-dir>")
-    System.exit(1)
+data class Args(val kmlDir: File, val imageDir: File, val timeZone: ZoneId) {
+  companion object {
+    fun parse(args: Array<String>): Args {
+      if (args.size < 3) {
+        err.println("Usage: <kml-dir> <image-dir> <time-zone>")
+        err.println("Local time-zone is: ${ZoneId.systemDefault()}, provide the one where the images were taken")
+        System.exit(1)
+      }
+      return Args(File(args[0]), File(args[1]), ZoneId.of(args[2]))
+    }
   }
-  return args.map(::File)
 }
