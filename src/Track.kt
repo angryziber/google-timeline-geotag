@@ -6,7 +6,7 @@ data class Track(
     val name: String,
     val startAt: Instant,
     val endAt: Instant,
-    val track: MutableList<TrackPoint> = ArrayList()
+    val points: MutableList<TrackPoint> = ArrayList()
 ) {
   val duration = Duration.between(startAt, endAt)
 }
