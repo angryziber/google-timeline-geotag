@@ -8,6 +8,10 @@ data class Track(
   val endAt: Instant,
   val points: MutableList<TrackPoint> = ArrayList()) {
   val duration = Duration.between(startAt, endAt)
+
+  fun pointAt(time: Instant): TrackPoint? {
+    return points.findLast { it.time <= time }
+  }
 }
 
 data class TrackPoint(
