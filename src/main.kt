@@ -4,5 +4,5 @@ fun main(arguments: Array<String>) {
   val tracks = app.readKmlTracks()
   val images = app.readImages()
 
-  app.match(tracks, images)
+  Matcher.match(tracks, images)
 }
