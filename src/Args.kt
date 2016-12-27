@@ -11,20 +11,24 @@ data class Args(val kmlDir: File, val imageDir: File, val timeZone: ZoneId, val 
       val options = args.intersect(OPTIONS.keys)
       args.removeAll(options)
 
-      if (args.size < 3) {
-        printUsage()
-        System.exit(1)
-      }
+      if (args.size < 3) printUsage()
       // TODO: we can detect timezones using the coordinates using https://github.com/drtimcooper/LatLongToTimezone
       return Args(File(args[0]), File(args[1]), ZoneId.of(args[2]), options)
     }
 
-    private fun printUsage() {
+    private fun printUsage(error: String? = null) {
+      if (error != null) err.println("Error: ${error}\n")
       err.println("Usage: <kml-dir> <image-dir> <time-zone>")
       err.println("Local time-zone is: ${ZoneId.systemDefault()}, provide the one where the images were taken")
       err.println("Options:")
       OPTIONS.forEach(::println)
+      System.exit(1)
     }
+  }
+
+  init {
+    if (!kmlDir.isDirectory) printUsage("${kmlDir} is not a directory")
+    if (!imageDir.isDirectory) printUsage("${imageDir} is not a directory")
   }
 
   val verbose = options.contains("-v")
