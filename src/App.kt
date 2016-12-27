@@ -16,6 +16,7 @@ class App(val args: Args) {
     }
 
     tracks.sortBy { it.startAt }
+    if (args.verbose) tracks.forEach { println(it) }
     return tracks
   }
 
@@ -29,7 +30,7 @@ class App(val args: Args) {
       }
     }
     .filterNotNull()
-    .apply { forEach { println("${it.file} ${it.dateTime}") }}
+    .apply { if (args.verbose) forEach { println("${it.file} ${it.dateTime}") }}
     .filter {
       !it.geoTagged.apply {
         if (this) err.println("Already geotagged: ${it.file}")
