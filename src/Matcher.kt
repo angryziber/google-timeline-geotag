@@ -20,7 +20,7 @@ object Matcher {
   }
 
   private fun matchFound(image: ImageData, track: Track) {
-    println("${image.file} ${image.dateTime} ${track.pointAt(image.dateTime)}")
+    println("${image.file} ${image.dateTime} ${track.pointAt(image.dateTime)} ${track.name}")
   }
 
   private fun Iterator<Track>.skipUntil(dateTime: Instant): Track? {
