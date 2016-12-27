@@ -1,4 +1,4 @@
-package geotag
+package geotag.images
 
 import org.apache.commons.imaging.Imaging
 import org.apache.commons.imaging.common.ImageMetadata
@@ -14,7 +14,7 @@ import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
-class ImageData(val file: File, val timeZone: ZoneId) {
+class Image(val file: File, val timeZone: ZoneId) {
   companion object {
     val EXIF_DATETIME = DateTimeFormatter.ofPattern("yyyy:MM:dd HH:mm:ss")
   }

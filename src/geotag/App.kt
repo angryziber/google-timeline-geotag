@@ -1,5 +1,6 @@
 package geotag
 
+import geotag.images.Image
 import geotag.timeline.TimelineKmlParser
 import geotag.timeline.Track
 import java.lang.System.err
@@ -23,10 +24,10 @@ class App(val args: Args) {
     return tracks
   }
 
-  fun readImages(): List<ImageData> {
+  fun readImages(): List<Image> {
     return args.imageFiles.map { file ->
       try {
-        ImageData(file, args.timeZone)
+        Image(file, args.timeZone)
       } catch (e: Exception) {
         err.println("Failed to read exif from $file: $e")
         null
