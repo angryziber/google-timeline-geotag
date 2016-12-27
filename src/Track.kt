@@ -15,7 +15,7 @@ data class Track(
 }
 
 data class TrackPoint(
-  val time: Instant,
   val lat: Float,
-  val lon: Float
+  val lon: Float,
+  val time: Instant
 )

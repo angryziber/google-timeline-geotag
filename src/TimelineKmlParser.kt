@@ -26,7 +26,7 @@ class TimelineKmlParser {
     var time = startAt
     coords.forEach {
       val (lat, lon) = it.textContent.split(' ')
-      points += TrackPoint(time, lat.toFloat(), lon.toFloat())
+      points += TrackPoint(lat.toFloat(), lon.toFloat(), time)
       time += timeStep
     }
   }
