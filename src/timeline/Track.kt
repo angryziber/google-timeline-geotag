@@ -1,3 +1,5 @@
+package timeline
+
 import java.time.Duration
 import java.time.Instant
 import java.util.*
@@ -13,9 +15,3 @@ data class Track(
     return points.findLast { it.time <= time }
   }
 }
-
-data class TrackPoint(
-  val lat: Float,
-  val lon: Float,
-  val time: Instant
-)
