@@ -35,10 +35,7 @@ class TimelineKmlParser {
     for (i in 0..length-1) action(item(i) as Element)
   }
 
-  private operator fun Element.get(name: String): Element {
-    return getElementsByTagName(name).item(0) as Element
-  }
+  private operator fun Element.get(name: String) = getElementsByTagName(name).item(0) as Element
 
-  private val Element.instant: Instant
-      get() = Instant.parse(textContent)
+  private val Element.instant: Instant get() = Instant.parse(textContent)
 }
