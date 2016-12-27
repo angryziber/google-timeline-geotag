@@ -1,3 +1,4 @@
+import java.lang.System.err
 import java.time.Instant
 import java.util.*
 
@@ -10,7 +11,7 @@ class App(val args: Args) {
       try {
         tracks += parser.parse(file)
       } catch (e: Exception) {
-        System.err.println("Failed to parse $file: $e")
+        err.println("Failed to parse $file: $e")
       }
     }
 
@@ -23,14 +24,14 @@ class App(val args: Args) {
       try {
         ImageData(file, args.timeZone)
       } catch (e: Exception) {
-        System.err.println("Failed to read exif from $file: $e")
+        err.println("Failed to read exif from $file: $e")
         null
       }
     }
     .filterNotNull()
     .filter {
       !it.geoTagged.apply {
-        if (this) System.err.println("Already geotagged: ${it.file}")
+        if (this) err.println("Already geotagged: ${it.file}")
       }
     }.toList().sortedBy { it.dateTime }
   }
