@@ -9,7 +9,7 @@ object Matcher {
     var image = ii.next()
 
     do {
-      if (track.matches(image.dateTime)) {
+      if (track matches image.dateTime) {
         matchFound(image, track)
         image = ii.next()
       }
@@ -23,13 +23,13 @@ object Matcher {
     println("${image.file} ${image.dateTime} ${track.startAt}-${track.endAt}")
   }
 
-  private fun Track.matches(dateTime: Instant) = startAt <= dateTime && endAt >= dateTime
-
   private fun Iterator<Track>.skipUntil(dateTime: Instant): Track? {
     while (hasNext()) {
       val track = next()
-      if (track.matches(dateTime)) return track
+      if (track matches dateTime) return track
     }
     return null
   }
+
+  private infix fun Track.matches(dateTime: Instant) = startAt <= dateTime && endAt >= dateTime
 }
