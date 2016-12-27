@@ -1,4 +1,4 @@
-package timeline
+package geotag.timeline
 
 import java.time.Instant
 

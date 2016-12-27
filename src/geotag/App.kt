@@ -1,5 +1,7 @@
-import timeline.TimelineKmlParser
-import timeline.Track
+package geotag
+
+import geotag.timeline.TimelineKmlParser
+import geotag.timeline.Track
 import java.lang.System.err
 import java.util.*
 

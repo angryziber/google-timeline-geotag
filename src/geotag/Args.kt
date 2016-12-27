@@ -1,3 +1,5 @@
+package geotag
+
 import java.io.File
 import java.lang.System.err
 import java.time.ZoneId

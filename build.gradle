@@ -35,9 +35,9 @@ dependencies {
 }
 
 jar {
-    manifest {
-        attributes 'Main-Class': 'MainKt'
-    }
+  manifest {
+    attributes 'Main-Class': 'geotag.MainKt'
+  }
 
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+  from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }

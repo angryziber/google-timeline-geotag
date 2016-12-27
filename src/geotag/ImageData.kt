@@ -1,3 +1,5 @@
+package geotag
+
 import org.apache.commons.imaging.Imaging
 import org.apache.commons.imaging.common.ImageMetadata
 import org.apache.commons.imaging.formats.jpeg.JpegImageMetadata

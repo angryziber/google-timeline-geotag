@@ -1,4 +1,6 @@
-import timeline.Track
+package geotag
+
+import geotag.timeline.Track
 import java.time.Instant
 
 object Matcher {
