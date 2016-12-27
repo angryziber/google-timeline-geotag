@@ -2,8 +2,12 @@
 
 *Experimental*
 
-The app reads KML files exported from Google Maps Timeline and a directory of images (recursively),
-jpeg or raw (tested with Canon CR2). Already Geotagged images are skipped.
+The app reads KML files exported from [Google Maps Timeline](https://www.google.com/maps/timeline) 
+and a directory of images (recursively), jpeg or raw (tested with Canon CR2). 
+Already Geotagged images are skipped.
+
+*DateTimeOriginal* Exif tag is read from the image files. Timezone name needs to be
+provides as Exif stores only local times. The DST in the provided timezone is accounted for.
 
 Then it matches images to timeline tracks and prints the results.
 
