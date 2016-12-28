@@ -31,9 +31,9 @@ class TimelineKmlParser {
     }
   }
 
-  private inline fun <T> NodeList.map(trasform: (Element) -> T): List<T> {
+  private inline fun <T> NodeList.map(transform: (Element) -> T): List<T> {
     val dest = ArrayList<T>(length)
-    for (i in 0..length-1) dest += trasform(item(i) as Element)
+    for (i in 0..length-1) dest += transform(item(i) as Element)
     return dest
   }
 
