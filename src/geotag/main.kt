@@ -1,7 +1,7 @@
 package geotag
 
 fun main(arguments: Array<String>) {
-  val app = App(Args.Companion.parse(arguments))
+  val app = App(Args.parse(arguments))
 
   val tracks = app.readKmlTracks()
   val images = app.readImages()
