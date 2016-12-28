@@ -1,15 +1,11 @@
 package geotag.timeline
 
-import java.time.Duration
 import java.time.Instant
-import java.util.*
 
 data class Track(
   val name: String,
-  val startAt: Instant,
-  val endAt: Instant,
-  val points: MutableList<TrackPoint> = ArrayList()) {
-  val duration = Duration.between(startAt, endAt)
+  val timeSpan: TimeSpan,
+  val points: List<TrackPoint>) {
 
   fun pointAt(time: Instant): TrackPoint? {
     return points.findLast { it.time <= time }

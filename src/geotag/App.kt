@@ -19,7 +19,7 @@ class App(val args: Args) {
       }
     }
 
-    tracks.sortBy { it.startAt }
+    tracks.sortBy { it.timeSpan.begin }
     if (args.verbose) tracks.forEach { println(it) }
     return tracks
   }

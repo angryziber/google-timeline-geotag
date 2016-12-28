@@ -35,5 +35,5 @@ object Matcher {
     return null
   }
 
-  private infix fun Track.matches(dateTime: Instant) = startAt <= dateTime && endAt >= dateTime
+  private infix fun Track.matches(dateTime: Instant) = timeSpan.matches(dateTime)
 }

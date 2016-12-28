@@ -14,23 +14,25 @@ class TimelineKmlParser {
     val result = ArrayList<Track>()
     val document = documentBuilder.parse(file.inputStream())
     document.getElementsByTagName("Placemark").forEach { placemark ->
-      val timeSpan = placemark["TimeSpan"]
-      val track = Track(placemark["name"].textContent, timeSpan["begin"].instant, timeSpan["end"].instant)
-      track.addPoints(placemark.getElementsByTagName("gx:coord"))
-      result += track
+      val span = placemark["TimeSpan"]
+      val timeSpan = TimeSpan(span["begin"].instant, span["end"].instant)
+      result += Track(placemark["name"].textContent, timeSpan,
+          points(placemark.getElementsByTagName("gx:coord"), timeSpan))
     }
     return result
   }
 
-  private fun Track.addPoints(coords: NodeList) {
-    if (coords.length == 0) return
-    val timeStep = duration.dividedBy(coords.length.toLong())
-    var time = startAt
+  private fun points(coords: NodeList, timeSpan: TimeSpan): List<TrackPoint> {
+    if (coords.length == 0) return emptyList()
+    val timeStep = timeSpan.duration.dividedBy(coords.length.toLong())
+    var time = timeSpan.begin
+    val points: MutableList<TrackPoint> = ArrayList()
     coords.forEach {
       val (lat, lon) = it.textContent.split(' ')
       points += TrackPoint(lat.toFloat(), lon.toFloat(), time)
       time += timeStep
     }
+    return points
   }
 
   private inline fun NodeList.forEach(action: (Element) -> Unit) {
