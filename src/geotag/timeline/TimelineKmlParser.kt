@@ -11,32 +11,30 @@ class TimelineKmlParser {
   val documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder()
 
   fun parse(file: File): List<Track> {
-    val result = ArrayList<Track>()
     val document = documentBuilder.parse(file.inputStream())
-    document.getElementsByTagName("Placemark").forEach { placemark ->
+    return document.getElementsByTagName("Placemark").map { placemark ->
       val span = placemark["TimeSpan"]
       val timeSpan = TimeSpan(span["begin"].instant, span["end"].instant)
-      result += Track(placemark["name"].textContent, timeSpan,
+      Track(placemark["name"].textContent, timeSpan,
           points(placemark.getElementsByTagName("gx:coord"), timeSpan))
     }
-    return result
   }
 
   private fun points(coords: NodeList, timeSpan: TimeSpan): List<TrackPoint> {
     if (coords.length == 0) return emptyList()
     val timeStep = timeSpan.duration.dividedBy(coords.length.toLong())
-    var time = timeSpan.begin
-    val points: MutableList<TrackPoint> = ArrayList()
-    coords.forEach {
+    var time = timeSpan.begin - timeStep
+    return coords.map {
       val (lat, lon) = it.textContent.split(' ')
-      points += TrackPoint(lat.toFloat(), lon.toFloat(), time)
       time += timeStep
+      TrackPoint(lat.toFloat(), lon.toFloat(), time)
     }
-    return points
   }
 
-  private inline fun NodeList.forEach(action: (Element) -> Unit) {
-    for (i in 0..length-1) action(item(i) as Element)
+  private inline fun <T> NodeList.map(trasform: (Element) -> T): List<T> {
+    val dest = ArrayList<T>(length)
+    for (i in 0..length-1) dest += trasform(item(i) as Element)
+    return dest
   }
 
   private operator fun Element.get(name: String) = getElementsByTagName(name).item(0) as Element
