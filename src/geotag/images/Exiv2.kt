@@ -1,17 +1,18 @@
 package geotag.images
 
+import geotag.timeline.LatLon
 import geotag.timeline.TrackPoint
 import java.io.File
 
 object Exiv2 {
   fun geoTag(file: File, point: TrackPoint): String {
-    val lat = point.latitude
-    val lon = point.longitude
     return "exiv2 " +
-        "-M'set Exif.GPSInfo.GPSLatitudeRef ${lat.ref}' " +
-        "-M'set Exif.GPSInfo.GPSLatitude ${lat.d}/1 ${lat.m}/1 ${(lat.s * 1000).toInt()}/1000' " +
-        "-M'set Exif.GPSInfo.GPSLongitudeRef ${lon.ref}' " +
-        "-M'set Exif.GPSInfo.GPSLongitude ${lon.d}/1 ${lon.m}/1 ${(lon.s * 1000).toInt()}/1000' " +
+        "-M'set Exif.GPSInfo.GPSLatitudeRef ${point.lat.ref}' " +
+        "-M'set Exif.GPSInfo.GPSLatitude ${point.lat.deg}' " +
+        "-M'set Exif.GPSInfo.GPSLongitudeRef ${point.lon.ref}' " +
+        "-M'set Exif.GPSInfo.GPSLongitude ${point.lon.deg}' " +
         file
   }
+
+  private val LatLon.deg: String get() = "${d}/1 ${m}/1 ${(s * 1000).toInt()}/1000"
 }
