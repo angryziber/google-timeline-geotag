@@ -14,6 +14,9 @@ repositories {
   maven {
     url 'https://repository.apache.org/content/repositories/snapshots/'
   }
+  maven {
+    url 'http://repository.jetbrains.com/all'
+  }
 }
 
 apply plugin: 'kotlin'
@@ -32,6 +35,8 @@ sourceSets {
 dependencies {
   compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
   compile 'org.apache.commons:commons-imaging:1.0-SNAPSHOT'
+  testCompile 'org.assertj:assertj-core:3.6.1'
+  testCompile 'org.jetbrains.spek:spek:1.0.25'
 }
 
 jar {
