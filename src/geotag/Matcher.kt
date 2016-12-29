@@ -5,7 +5,7 @@ import geotag.timeline.Track
 import java.time.Instant
 
 object Matcher {
-  fun match(tracks: Iterable<Track>, images: Iterable<Image>) {
+  fun match(images: Iterable<Image>, tracks: Iterable<Track>, matchFound: (Image, Track) -> Unit) {
     val ti = tracks.iterator()
     val ii = images.iterator()
 
@@ -21,10 +21,6 @@ object Matcher {
         track = ti.skipUntil(image.dateTime) ?: return
       }
     } while (ii.hasNext())
-  }
-
-  private fun matchFound(image: Image, track: Track) {
-    println("${image.file} ${image.dateTime} ${track.pointAt(image.dateTime)} ${track.name}")
   }
 
   private fun Iterator<Track>.skipUntil(dateTime: Instant): Track? {

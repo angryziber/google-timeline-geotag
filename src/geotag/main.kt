@@ -6,5 +6,7 @@ fun main(arguments: Array<String>) {
   val tracks = app.readKmlTracks()
   val images = app.readImages()
 
-  Matcher.match(tracks, images)
+  Matcher.match(images, tracks) { image, track ->
+    println("${image.file} ${image.dateTime} ${track.pointAt(image.dateTime)} ${track.name}")
+  }
 }
