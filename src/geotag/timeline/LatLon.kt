@@ -15,6 +15,8 @@ abstract class LatLon(val value: Float) {
 
   val s: Float
     get() = (abs - d - m/60f) * 3600f
+
+  override fun toString() = value.toString()
 }
 
 class Latitude(value: Float) : LatLon(value) {
