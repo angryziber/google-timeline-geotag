@@ -19,8 +19,8 @@ class Image(val file: File, val timeZone: ZoneId) {
     val EXIF_DATETIME = DateTimeFormatter.ofPattern("yyyy:MM:dd HH:mm:ss")
   }
 
-  val metadata by lazy { Imaging.getMetadata(file) }
-  val dateTime by lazy { metadata[EXIF_TAG_DATE_TIME_ORIGINAL].instant }
+  val metadata = Imaging.getMetadata(file)
+  val dateTime = metadata[EXIF_TAG_DATE_TIME_ORIGINAL].instant
 
   val geoTagged: Boolean
     get() = metadata[GPS_TAG_GPS_LATITUDE] != null

@@ -11,6 +11,6 @@ fun main(arguments: Array<String>) {
   Matcher.match(images, tracks) { image, track ->
     val point = track.pointAt(image.dateTime)
     println("${image.file} ${image.dateTime} ${point} ${track.name}")
-    if (point != null) println(Exiv2.geoTag(image, point))
+    if (point != null) println(Exiv2.geoTag(image.file, point))
   }
 }
