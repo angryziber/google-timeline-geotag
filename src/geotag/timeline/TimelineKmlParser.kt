@@ -25,7 +25,7 @@ class TimelineKmlParser {
     val timeStep = timeSpan.duration.dividedBy(coords.length.toLong())
     var time = timeSpan.begin - timeStep
     return coords.map {
-      val (lat, lon) = it.textContent.split(' ')
+      val (lon, lat) = it.textContent.split(' ')
       time += timeStep
       TrackPoint(lat.toFloat(), lon.toFloat(), time)
     }
