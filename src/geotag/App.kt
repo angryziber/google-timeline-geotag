@@ -1,14 +1,14 @@
 package geotag
 
 import geotag.images.Image
-import geotag.timeline.TimelineKmlParser
+import geotag.timeline.KmlTimelineParser
 import geotag.timeline.Track
 import java.lang.System.err
 import java.util.*
 
 class App(val args: Args) {
   fun readKmlTracks(): List<Track> {
-    val parser = TimelineKmlParser()
+    val parser = KmlTimelineParser()
     val tracks = ArrayList<Track>(1000)
 
     args.kmlFiles.forEach { file ->

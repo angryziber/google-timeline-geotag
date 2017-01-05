@@ -104,5 +104,6 @@
     <orderEntry type="library" scope="TEST" name="Gradle: org.assertj:assertj-core:3.6.1" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-runtime:1.0.6" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.0.6" level="project" />
+    <orderEntry type="library" name="Gradle: me.doubledutch:lazyjson:1.2.6" level="project" />
   </component>
 </module>

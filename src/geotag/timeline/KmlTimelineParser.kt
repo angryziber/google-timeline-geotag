@@ -7,10 +7,10 @@ import java.time.Instant
 import java.util.*
 import javax.xml.parsers.DocumentBuilderFactory
 
-class TimelineKmlParser {
+class KmlTimelineParser : TimelineParser {
   val documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder()
 
-  fun parse(file: File): List<Track> {
+  override fun parse(file: File): List<Track> {
     val document = documentBuilder.parse(file.inputStream())
     return document.getElementsByTagName("Placemark").map { placemark ->
       val span = placemark["TimeSpan"]
