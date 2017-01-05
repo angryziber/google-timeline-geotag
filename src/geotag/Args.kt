@@ -8,7 +8,7 @@ data class Args(val kmlDir: File, val imageDir: File, val timeZone: ZoneId, val 
   companion object {
     val OPTIONS = mapOf("-v" to "Verbose")
 
-    fun parse(arguments: Array<String>): Args {
+    fun parse(vararg arguments: String): Args {
       val args = arguments.toMutableList()
       val options = args.intersect(OPTIONS.keys)
       args.removeAll(options)
