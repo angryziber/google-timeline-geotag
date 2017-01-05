@@ -6,7 +6,7 @@ abstract class LatLon(val value: Float) {
   val abs = abs(value)
 
   abstract val ref: Char
-  
+
   val d: Int get() = abs.toInt()
   val m: Int get() = ((abs - d) * 60f).toInt()
   val s: Float get() = (abs - d - m/60f) * 3600f
