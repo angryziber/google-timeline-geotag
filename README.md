@@ -7,7 +7,7 @@ and a directory of images (recursively), jpeg or raw (tested with Canon CR2).
 Already Geotagged images are skipped.
 
 I have discovered that KML files that you can save from the UI do not contain precise timestamps, so are not
-very good for geotagging, especially photograph while moving.
+very good for geotagging, especially photograph while moving. Nor is there an altitude.
 
 I am going to try to use the [Google Takeout](https://takeout.google.com/settings/takeout/custom/location_history) JSON format instead.
 
