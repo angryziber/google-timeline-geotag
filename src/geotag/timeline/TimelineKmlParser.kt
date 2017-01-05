@@ -25,7 +25,9 @@ class TimelineKmlParser {
     val timeStep = timeSpan.duration.dividedBy(coords.length.toLong())
     var time = timeSpan.begin - timeStep
     return coords.map {
-      val (lon, lat) = it.textContent.split(' ')
+      val (lon, lat, alt) = it.textContent.split(' ')
+      // TODO: set Exif.GPSInfo.GPSAltitudeRef (kml altitudeMode=clampToGround), alt seems to always be 0
+      // TODO: set Exif.GPSInfo.GPSAreaInformation to track name
       time += timeStep
       TrackPoint(lat.toFloat(), lon.toFloat(), time)
     }
