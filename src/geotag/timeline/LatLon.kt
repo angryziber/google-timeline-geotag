@@ -16,6 +16,8 @@ abstract class LatLon(val value: Float) {
   val s: Float
     get() = (abs - d - m/60f) * 3600f
 
+  override fun equals(other: Any?) = other is LatLon && value == other.value
+  override fun hashCode() = value.hashCode()
   override fun toString() = value.toString()
 }
 
