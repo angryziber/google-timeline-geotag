@@ -1,8 +1,5 @@
 package geotag
 
-import geotag.timeline.JsonTimelineParser
-import geotag.timeline.KmlTimelineParser
-import geotag.timeline.TimelineParser
 import java.io.File
 import java.lang.System.err
 import java.time.ZoneId
@@ -37,9 +34,6 @@ data class Args(val timelinePath: File, val imageDir: File, val timeZone: ZoneId
   }
 
   val verbose = options.contains("-v")
-
-  val timelineParser: TimelineParser
-    get() = if (timelinePath.name.endsWith(".json")) JsonTimelineParser() else KmlTimelineParser()
 
   val imageFiles: Sequence<File>
     get() = imageDir.walkTopDown().filter { it.isFile }

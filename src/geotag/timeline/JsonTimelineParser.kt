@@ -7,18 +7,12 @@ import com.google.gson.stream.JsonReader
 import java.io.File
 import java.io.IOException
 import java.time.Instant
-import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.ZoneId
 import java.util.*
 
-class JsonTimelineParser : TimelineParser {
+class JsonTimelineParser(val from: Instant, val until: Instant) : TimelineParser {
   val gson = Gson()
 
   override fun parse(path: File): List<Track> {
-    val from = LocalDate.parse("2016-10-19").atStartOfDay(ZoneId.systemDefault()).toInstant()
-    val until = LocalDateTime.parse("2016-10-27T12:47:00").atZone(ZoneId.systemDefault()).toInstant()
-
     val result = ArrayList<Track>(1000)
 
     gson.newJsonReader(path.reader()).use { reader ->
@@ -36,6 +30,7 @@ class JsonTimelineParser : TimelineParser {
       }
     }
 
+    result.reverse()
     return result
   }
 

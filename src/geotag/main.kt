@@ -6,8 +6,8 @@ import geotag.out.Output
 fun main(arguments: Array<String>) {
   val app = App(Args.parse(*arguments))
 
-  val tracks = app.readTimeline()
   val images = app.readImages()
+  val tracks = app.readTimeline(images.first().dateTime, images.last().dateTime)
 
   val out: Output = GPX
   println(out.start())
