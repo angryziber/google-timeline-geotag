@@ -1,10 +1,13 @@
 package geotag
 
+import geotag.timeline.JsonTimelineParser
+import geotag.timeline.KmlTimelineParser
+import geotag.timeline.TimelineParser
 import java.io.File
 import java.lang.System.err
 import java.time.ZoneId
 
-data class Args(val kmlDir: File, val imageDir: File, val timeZone: ZoneId, val options: Set<String>) {
+data class Args(val timelinePath: File, val imageDir: File, val timeZone: ZoneId, val options: Set<String>) {
   companion object {
     val OPTIONS = mapOf("-v" to "Verbose")
 
@@ -20,7 +23,7 @@ data class Args(val kmlDir: File, val imageDir: File, val timeZone: ZoneId, val 
 
     private fun printUsage(error: String? = null) {
       if (error != null) err.println("Error: ${error}\n")
-      err.println("Usage: <kml-dir> <image-dir> <time-zone>")
+      err.println("Usage: <json-file-or-kml-dir> <image-dir> <time-zone>")
       err.println("Local time-zone is: ${ZoneId.systemDefault()}, provide the one where the images were taken")
       err.println("Options:")
       OPTIONS.forEach(::println)
@@ -29,14 +32,14 @@ data class Args(val kmlDir: File, val imageDir: File, val timeZone: ZoneId, val 
   }
 
   init {
-    if (!kmlDir.isDirectory) printUsage("${kmlDir} is not a directory")
+    if (!timelinePath.exists()) printUsage("${timelinePath} does not exist")
     if (!imageDir.isDirectory) printUsage("${imageDir} is not a directory")
   }
 
   val verbose = options.contains("-v")
 
-  val kmlFiles: Sequence<File>
-    get() = kmlDir.list().asSequence().filter { it.endsWith(".kml") || it.endsWith(".xml") }.map { File(kmlDir, it) }
+  val timelineParser: TimelineParser
+    get() = if (timelinePath.name.endsWith(".json")) JsonTimelineParser() else KmlTimelineParser()
 
   val imageFiles: Sequence<File>
     get() = imageDir.walkTopDown().filter { it.isFile }

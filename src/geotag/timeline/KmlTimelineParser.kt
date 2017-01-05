@@ -10,7 +10,26 @@ import javax.xml.parsers.DocumentBuilderFactory
 class KmlTimelineParser : TimelineParser {
   val documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder()
 
-  override fun parse(file: File): List<Track> {
+  override fun parse(path: File): List<Track> {
+    val kmlFiles = kmlFilesFrom(path)
+
+    val tracks = ArrayList<Track>(1000)
+    kmlFiles.forEach { file ->
+      try {
+        tracks += parseKml(file)
+      } catch (e: Exception) {
+        System.err.println("Failed to parse $file: $e")
+      }
+    }
+    return tracks
+  }
+
+  private fun kmlFilesFrom(path: File) =
+    if (path.isDirectory)
+        path.list().asSequence().filter { it.endsWith(".kml") || it.endsWith(".xml") }.map { File(path, it) }
+    else sequenceOf(path)
+
+  private fun parseKml(file: File): List<Track> {
     val document = documentBuilder.parse(file.inputStream())
     return document.getElementsByTagName("Placemark").map { placemark ->
       val span = placemark["TimeSpan"]
