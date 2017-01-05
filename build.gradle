@@ -35,7 +35,7 @@ sourceSets {
 dependencies {
   compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
   compile 'org.apache.commons:commons-imaging:1.0-SNAPSHOT'
-  compile 'me.doubledutch:lazyjson:1.2.6'
+  compile 'com.google.code.gson:gson:2.8.0'
   testCompile 'org.assertj:assertj-core:3.6.1'
   testCompile 'org.jetbrains.spek:spek:1.0.25'
 }
