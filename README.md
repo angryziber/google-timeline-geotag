@@ -6,6 +6,11 @@ The app reads KML files exported from [Google Maps Timeline](https://www.google.
 and a directory of images (recursively), jpeg or raw (tested with Canon CR2). 
 Already Geotagged images are skipped.
 
+I have discovered that KML files that you can save from the UI do not contain precise timestamps, so are not
+very good for geotagging, especially photograph while moving.
+
+I am going to try to use the [Google Takeout](https://takeout.google.com/settings/takeout/custom/location_history) JSON format instead.
+
 *DateTimeOriginal* Exif tag is read from the image files. Timezone name needs to be
 provided as Exif stores only local times. The DST in the provided timezone is accounted for.
 
