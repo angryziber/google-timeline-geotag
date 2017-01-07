@@ -23,7 +23,7 @@ data class Args(val timelinePath: File, val imageDir: File, val timeZone: ZoneId
       err.println("Usage: <json-file-or-kml-dir> <image-dir> <time-zone>")
       err.println("Local time-zone is: ${ZoneId.systemDefault()}, provide the one where the images were taken")
       err.println("Options:")
-      OPTIONS.forEach(::println)
+      OPTIONS.forEach { err.println(it) }
       System.exit(1)
     }
   }
