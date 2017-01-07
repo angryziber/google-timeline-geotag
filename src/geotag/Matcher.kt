@@ -14,7 +14,7 @@ object Matcher {
     var image = ii.next()
 
     while (true) {
-      if (image.dateTime >= point.time) {
+      if (image.time >= point.time) {
         matchFound(image, point)
         if (ii.hasNext()) image = ii.next() else break
       }

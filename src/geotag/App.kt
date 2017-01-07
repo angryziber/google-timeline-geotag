@@ -34,6 +34,6 @@ class App(val args: Args) {
       !it.geoTagged.apply {
         if (this) err.println("Already geotagged: ${it.file}")
       }
-    }.toList().sortedBy { it.dateTime }
+    }.toList().sortedBy { it.time }
   }
 }
