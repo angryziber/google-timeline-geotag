@@ -12,8 +12,8 @@ import java.util.*
 class JsonTimelineParser(val from: Instant, val until: Instant) : TimelineParser {
   val gson = Gson()
 
-  override fun parse(path: File): List<Track> {
-    val result = ArrayList<Track>(1000)
+  override fun parse(path: File): List<TrackPoint> {
+    val result = ArrayList<TrackPoint>(1000)
 
     gson.newJsonReader(path.reader()).use { reader ->
       reader.beginObject()
@@ -24,9 +24,7 @@ class JsonTimelineParser(val from: Instant, val until: Instant) : TimelineParser
         val time = o["timestampMs"].instant
         if (time.isAfter(until)) continue
         if (time.isBefore(from)) break
-        result += Track("", TimeSpan(time, time), listOf(
-            TrackPoint(o["latitudeE7"].e7, o["longitudeE7"].e7, time)
-        ))
+        result += TrackPoint(o["latitudeE7"].e7, o["longitudeE7"].e7, time)
       }
     }
 

@@ -10,17 +10,18 @@ import javax.xml.parsers.DocumentBuilderFactory
 class KmlTimelineParser : TimelineParser {
   val documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder()
 
-  override fun parse(path: File): List<Track> {
+  override fun parse(path: File): List<TrackPoint> {
     val kmlFiles = kmlFilesFrom(path)
 
-    val tracks = ArrayList<Track>(1000)
+    val tracks = ArrayList<TrackPoint>(1000)
     kmlFiles.forEach { file ->
       try {
-        tracks += parseKml(file)
+        tracks += parseKml(file).flatMap { it.points }
       } catch (e: Exception) {
         System.err.println("Failed to parse $file: $e")
       }
     }
+    tracks.sortBy { it.time }
     return tracks
   }
 

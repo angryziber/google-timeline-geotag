@@ -4,19 +4,18 @@ import geotag.images.Image
 import geotag.images.ImageLoader
 import geotag.timeline.JsonTimelineParser
 import geotag.timeline.KmlTimelineParser
-import geotag.timeline.Track
+import geotag.timeline.TrackPoint
 import java.lang.System.err
 import java.time.Instant
 
 class App(val args: Args) {
-  fun readTimeline(from: Instant, until: Instant): List<Track> {
+  fun readTimeline(from: Instant, until: Instant): List<TrackPoint> {
     val parser = if (args.timelinePath.name.endsWith(".json"))
       JsonTimelineParser(from, until) else KmlTimelineParser()
 
-    val tracks = parser.parse(args.timelinePath) as MutableList
-    tracks.sortBy { it.timeSpan.begin }
-    if (args.verbose) tracks.forEach { println(it) }
-    return tracks
+    val points = parser.parse(args.timelinePath) as MutableList
+    if (args.verbose) points.forEach { println(it) }
+    return points
   }
 
   fun readImages(): List<Image> {
