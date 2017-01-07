@@ -5,7 +5,7 @@ import geotag.timeline.TrackPoint
 import org.assertj.core.api.Assertions.assertThat
 import org.jetbrains.spek.api.Spek
 import java.io.File
-import java.time.Instant.now
+import java.time.OffsetDateTime.now
 
 class Exiv2Test: Spek({
   it("outputs exiv2") {

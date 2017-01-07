@@ -1,11 +1,11 @@
 package geotag.timeline
 
-import java.time.Instant
+import java.time.OffsetDateTime
 
 data class TrackPoint(
   val lat: Latitude,
   val lon: Longitude,
-  val time: Instant
+  val time: OffsetDateTime
 ) {
-  constructor(lat: Float, lon: Float, time: Instant) : this(Latitude(lat), Longitude(lon), time)
+  constructor(lat: Float, lon: Float, time: OffsetDateTime) : this(Latitude(lat), Longitude(lon), time)
 }

@@ -2,6 +2,7 @@ package geotag
 
 import geotag.out.GPX
 import geotag.out.Output
+import java.time.OffsetDateTime
 
 fun main(arguments: Array<String>) {
   val app = App(Args.parse(*arguments))
@@ -13,7 +14,7 @@ fun main(arguments: Array<String>) {
   println(out.start())
 
   Matcher.match(images, tracks) { image, track ->
-    val point = track.pointAt(image.dateTime)
+    val point = track.pointAt(OffsetDateTime.ofInstant(image.dateTime, app.args.timeZone))
     //println("${image.file} ${image.dateTime} ${point} ${track.name}")
     if (point != null) println(out.write(image.file, point))
   }

@@ -4,10 +4,12 @@ import org.w3c.dom.Element
 import org.w3c.dom.NodeList
 import java.io.File
 import java.time.Instant
+import java.time.OffsetDateTime
+import java.time.ZoneId
 import java.util.*
 import javax.xml.parsers.DocumentBuilderFactory
 
-class KmlTimelineParser : TimelineParser {
+class KmlTimelineParser(val timeZone: ZoneId) : TimelineParser {
   val documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder()
 
   override fun parse(path: File): List<Track> {
@@ -48,7 +50,7 @@ class KmlTimelineParser : TimelineParser {
       // TODO: set Exif.GPSInfo.GPSAltitudeRef (kml altitudeMode=clampToGround), alt seems to always be 0
       // TODO: set Exif.GPSInfo.GPSAreaInformation to track name
       time += timeStep
-      TrackPoint(lat.toFloat(), lon.toFloat(), time)
+      TrackPoint(lat.toFloat(), lon.toFloat(), OffsetDateTime.ofInstant(time, timeZone))
     }
   }
 

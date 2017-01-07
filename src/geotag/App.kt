@@ -10,7 +10,8 @@ import java.time.Instant
 class App(val args: Args) {
   fun readTimeline(from: Instant, until: Instant): List<Track> {
     val parser = if (args.timelinePath.name.endsWith(".json"))
-      JsonTimelineParser(from, until) else KmlTimelineParser()
+      JsonTimelineParser(from.atZone(args.timeZone).toOffsetDateTime(), until.atZone(args.timeZone).toOffsetDateTime(), args.timeZone)
+      else KmlTimelineParser(args.timeZone)
 
     val tracks = parser.parse(args.timelinePath) as MutableList
     tracks.sortBy { it.timeSpan.begin }
