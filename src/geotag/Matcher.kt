@@ -14,7 +14,7 @@ object Matcher {
     var nextPoint = pi.nextOrNull() ?: return matchLastPoint(image, point, matchFound)
 
     while (true) {
-      if (image.time >= point.time && image.time < nextPoint.time) {
+      if (image.between(point, nextPoint)) {
         matchFound(image, point)
         image = ii.nextOrNull() ?: return
       }
@@ -28,6 +28,8 @@ object Matcher {
   private fun matchLastPoint(image: Image, point: TrackPoint, matchFound: (Image, TrackPoint) -> Unit) {
     if (image.time == point.time) matchFound(image, point)
   }
+
+  private fun Image.between(p1: TrackPoint, p2: TrackPoint) = time >= p1.time && time < p2.time
 
   fun <T> Iterator<T>.nextOrNull(): T? = if (hasNext()) next() else null
 
