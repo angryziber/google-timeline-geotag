@@ -10,9 +10,8 @@ import java.time.Duration
 import java.time.Instant
 import java.util.*
 
-class JsonTimelineParser(from: Instant, until: Instant) : TimelineParser {
+class JsonTimelineParser(val from: Instant, until: Instant) : TimelineParser {
   val leeway = Duration.ofHours(3)
-  val from = from - leeway
   val until = until + leeway
   val gson = Gson()
 
@@ -23,11 +22,12 @@ class JsonTimelineParser(from: Instant, until: Instant) : TimelineParser {
       reader.beginObject()
       if (reader.nextName() != "locations") throw IOException("Json file must contain 'locations' array")
       reader.beginArray()
-      while (reader.hasNext()) {
+      var proceed = true
+      while (reader.hasNext() && proceed) {
         val o = reader.nextObject()
         val time = o["timestampMs"].instant
         if (time.isAfter(until)) continue
-        if (time.isBefore(from)) break
+        if (time.isBefore(from)) proceed = false
         result += TrackPoint(o["latitudeE7"].e7, o["longitudeE7"].e7, time)
       }
     }
