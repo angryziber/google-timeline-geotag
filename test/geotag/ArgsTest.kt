@@ -1,12 +1,12 @@
 package geotag
 
 import org.assertj.core.api.Assertions.assertThat
-import org.jetbrains.spek.api.Spek
+import org.junit.Test
 import java.io.File
 import java.time.ZoneId
 
-class ArgsTest: Spek({
-  it("parses arguments") {
+class ArgsTest {
+  @Test fun `parses arguments`() {
     val args = Args.parse("sample-kml", "/tmp", "Europe/Tallinn")
     assertThat(args.timelinePath).isEqualTo(File("sample-kml"))
     assertThat(args.imageDir).isEqualTo(File("/tmp"))
@@ -14,7 +14,7 @@ class ArgsTest: Spek({
     assertThat(args.verbose).isFalse()
   }
 
-  it("supports options") {
+  @Test fun `supports options`() {
     val args = Args.parse("-v", "sample-kml", "/tmp", "Europe/Tallinn")
     assertThat(args.timelinePath).isEqualTo(File("sample-kml"))
     assertThat(args.imageDir).isEqualTo(File("/tmp"))
@@ -22,4 +22,4 @@ class ArgsTest: Spek({
     assertThat(args.options).contains("-v")
     assertThat(args.verbose).isTrue()
   }
-})
+}
