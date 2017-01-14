@@ -13,7 +13,7 @@ class App(val args: Args) {
     val parser = if (args.timelinePath.name.endsWith(".json"))
       JsonTimelineParser(from, until) else KmlTimelineParser()
 
-    val points = parser.parse(args.timelinePath) as MutableList
+    val points = parser.parse(args.timelinePath)
     if (args.verbose) points.forEach { println(it) }
     return points
   }
