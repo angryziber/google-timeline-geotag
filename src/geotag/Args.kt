@@ -19,7 +19,7 @@ data class Args(val timelinePath: File, val imageDir: File, val timeZone: ZoneId
     }
 
     private fun printUsage(error: String? = null) {
-      if (error != null) err.println("Error: ${error}\n")
+      if (error != null) err.println("Error: $error\n")
       err.println("Usage: <json-file-or-kml-dir> <image-dir> <time-zone>")
       err.println("Local time-zone is: ${ZoneId.systemDefault()}, provide the one where the images were taken")
       err.println("Options:")
@@ -29,8 +29,8 @@ data class Args(val timelinePath: File, val imageDir: File, val timeZone: ZoneId
   }
 
   init {
-    if (!timelinePath.exists()) printUsage("${timelinePath} does not exist")
-    if (!imageDir.isDirectory) printUsage("${imageDir} is not a directory")
+    if (!timelinePath.exists()) printUsage("$timelinePath does not exist")
+    if (!imageDir.isDirectory) printUsage("$imageDir is not a directory")
   }
 
   val verbose = options.contains("-v")
