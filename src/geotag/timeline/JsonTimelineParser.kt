@@ -36,7 +36,7 @@ class JsonTimelineParser(val from: Instant, val until: Instant) : TimelineParser
   }
 
   private fun createPoint(o: JsonObject, time: Instant): TrackPoint {
-    return TrackPoint(o["latitudeE7"].e7, o["longitudeE7"].e7, time)
+    return TrackPoint(o["latitudeE7"].e7, o["longitudeE7"].e7, o["altitude"].asInt, time, o["accuracy"]?.asInt)
   }
 
   fun JsonReader.nextObject(): JsonObject = gson.fromJson(this, JsonObject::class.java)

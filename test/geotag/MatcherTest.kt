@@ -50,12 +50,12 @@ class MatcherTest {
 
   @Test fun `interpolates coordinates`() {
     val images = listOf(img(ofEpochSecond(20)))
-    val points = listOf(TrackPoint(10f, 10f, ofEpochSecond(10)), TrackPoint(30f, 30f, ofEpochSecond(30)))
+    val points = listOf(TrackPoint(10f, 10f, 10, ofEpochSecond(10)), TrackPoint(30f, 30f, 30, ofEpochSecond(30)))
     val newPoint = Matcher.collect(images, points)[0].second
-    assertThat(newPoint).isEqualTo(TrackPoint(20f, 20f, ofEpochSecond(20)))
+    assertThat(newPoint).isEqualTo(TrackPoint(20f, 20f, 20, ofEpochSecond(20)))
   }
 
   fun img(time: Instant) = Image(File(""), time)
-  fun point(time: Instant) = TrackPoint(0f, 0f, time)
+  fun point(time: Instant) = TrackPoint(0f, 0f, 0, time)
 }
 
