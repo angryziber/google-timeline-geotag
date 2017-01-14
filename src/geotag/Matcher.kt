@@ -2,6 +2,7 @@ package geotag
 
 import geotag.images.Image
 import geotag.timeline.TrackPoint
+import java.lang.System.err
 import java.util.*
 
 object Matcher {
@@ -11,6 +12,12 @@ object Matcher {
 
     var image = ii.nextOrNull() ?: return
     var point = pi.nextOrNull() ?: return
+
+    while (image.time < point.time) {
+      err.println("Skipping $image - no matching points")
+      image = ii.nextOrNull() ?: return
+    }
+
     var nextPoint = pi.nextOrNull() ?: return matchLastPoint(image, point, matchFound)
 
     while (true) {
