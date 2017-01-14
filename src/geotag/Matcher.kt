@@ -8,21 +8,28 @@ object Matcher {
   fun match(images: Iterable<Image>, points: Iterable<TrackPoint>, matchFound: (Image, TrackPoint) -> Unit) {
     val pi = points.iterator()
     val ii = images.iterator()
-    if (!pi.hasNext() || !ii.hasNext()) return
 
-    var point = pi.next()
-    var image = ii.next()
+    var image = ii.nextOrNull() ?: return
+    var point = pi.nextOrNull() ?: return
+    var nextPoint = pi.nextOrNull() ?: return matchLastPoint(image, point, matchFound)
 
     while (true) {
-      if (image.time >= point.time) {
+      if (image.time >= point.time && image.time < nextPoint.time) {
         matchFound(image, point)
-        if (ii.hasNext()) image = ii.next() else break
+        image = ii.nextOrNull() ?: return
       }
       else {
-        if (pi.hasNext()) point = pi.next() else break
+        point = nextPoint
+        nextPoint = pi.nextOrNull() ?: return matchLastPoint(image, point, matchFound)
       }
     }
   }
+
+  private fun matchLastPoint(image: Image, point: TrackPoint, matchFound: (Image, TrackPoint) -> Unit) {
+    if (image.time == point.time) matchFound(image, point)
+  }
+
+  fun <T> Iterator<T>.nextOrNull(): T? = if (hasNext()) next() else null
 
   fun collect(images: List<Image>, points: List<TrackPoint>): List<Pair<Image, TrackPoint>> {
     val matches = ArrayList<Pair<Image, TrackPoint>>()
