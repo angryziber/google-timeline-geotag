@@ -6,10 +6,14 @@ import com.google.gson.JsonObject
 import com.google.gson.stream.JsonReader
 import java.io.File
 import java.io.IOException
+import java.time.Duration
 import java.time.Instant
 import java.util.*
 
-class JsonTimelineParser(val from: Instant, val until: Instant) : TimelineParser {
+class JsonTimelineParser(from: Instant, until: Instant) : TimelineParser {
+  val leeway = Duration.ofHours(3)
+  val from = from - leeway
+  val until = until + leeway
   val gson = Gson()
 
   override fun parse(path: File): List<TrackPoint> {

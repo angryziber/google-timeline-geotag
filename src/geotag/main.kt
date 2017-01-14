@@ -2,15 +2,12 @@ package geotag
 
 import geotag.out.GPX
 import geotag.out.Output
-import java.time.Duration
-
-val leeway = Duration.ofHours(3)
 
 fun main(arguments: Array<String>) {
   val app = App(Args.parse(*arguments))
 
   val images = app.readImages()
-  val points = app.readTimeline(images.first().time - leeway, images.last().time + leeway)
+  val points = app.readTimeline(images.first().time, images.last().time)
 
   val out: Output = GPX
   println(out.start())
