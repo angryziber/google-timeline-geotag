@@ -6,5 +6,4 @@ import java.time.Instant
 
 data class TimeSpan(val begin: Instant, val end: Instant) {
   val duration: Duration get() = between(begin, end)
-  fun matches(dateTime: Instant) = begin <= dateTime && end >= dateTime
 }
