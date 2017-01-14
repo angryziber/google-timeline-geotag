@@ -8,8 +8,8 @@ object GPX : Output {
 <gpx xmlns="http://www.topografix.com/GPX/1/1">"""
 
   override fun write(file: File, point: TrackPoint) =
-      """<wpt lat="${point.lat.value}" lon="${point.lon.value}"><ele>${point.alt}</ele><time>${point.time}</time><name>${file.name}</name><url>file://${file}</url></wpt>""" +
-      """<trk><trkseg><trkpt lat="${point.lat.value}" lon="${point.lon.value}"><ele>${point.alt}</ele><time>${point.time}</time></trkpt></trkseg></trk>"""
+      """<wpt lat="${point.lat.value}" lon="${point.lon.value}"><ele>${point.alt ?: ""}</ele><time>${point.time}</time><name>${file.name}</name><url>file://${file}</url></wpt>""" +
+      """<trk><trkseg><trkpt lat="${point.lat.value}" lon="${point.lon.value}"><ele>${point.alt ?: ""}</ele><time>${point.time}</time></trkpt></trkseg></trk>"""
 
   override fun end() = """</gpx>"""
 }
