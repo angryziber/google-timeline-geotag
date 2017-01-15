@@ -49,4 +49,8 @@ You will find the resulting jar file in `build/libs`.
 
 Example with arguments:
 
-`java -jar google-timeline-geotag.jar sample-kml/ ~/Photos/2016/Africa/Nairobi/ Africa/Nairobi`
+`java -jar google-timeline-geotag.jar LocationHistory.json ~/Photos/2016/Africa Africa/Nairobi > geotag.sh`
+
+or
+
+`java -jar google-timeline-geotag.jar LocationHistory.json ~/Photos/2016/Africa Africa/Nairobi --gpx > geotag.gpx`
