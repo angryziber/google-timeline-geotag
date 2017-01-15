@@ -13,7 +13,7 @@ class App(val args: Args) {
     val parser = if (args.timelinePath.name.endsWith(".json"))
       JsonTimelineParser(from, until) else KmlTimelineParser()
 
-    err.println("Reading tracks from ${args.timelinePath} using ${parser}...")
+    err.println("Reading tracks from ${args.timelinePath} using ${parser.javaClass.name}...")
 
     val points = parser.parse(args.timelinePath)
     if (args.verbose) points.forEach { println(it) }
