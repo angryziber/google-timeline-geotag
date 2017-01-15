@@ -12,6 +12,8 @@ data class TrackPoint(
 ) {
   constructor(lat: Float, lon: Float, alt: Int? = null, time: Instant, acc: Int? = null) : this(Latitude(lat), Longitude(lon), alt, time, acc)
 
+  fun isCloseTo(p: TrackPoint) = Math.abs(lat.value - p.lat.value) <= 0.1 && Math.abs(lon.value - p.lon.value) <= 0.1
+
   companion object {
     fun interpolate(p1: geotag.timeline.TrackPoint, p2: geotag.timeline.TrackPoint, time: Instant): geotag.timeline.TrackPoint {
       val c = Duration.between(p1.time, time).toMillis().toFloat() / Duration.between(p1.time, p2.time).toMillis()

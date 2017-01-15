@@ -41,18 +41,23 @@ class MatcherTest {
         .containsExactly(images[0] to points[1], images[1] to points[3], images[2] to points[4])
   }
 
-  @Test
-  fun `images before points`() {
+  @Test fun `images before points are skipped`() {
     val images = listOf(img(ofEpochSecond(100)), img(ofEpochSecond(200)))
     val points = listOf(point(ofEpochSecond(200)), point(ofEpochSecond(300)))
     assertThat(Matcher.collect(images, points)).containsExactly(images[1] to points[0])
   }
 
-  @Test fun `interpolates coordinates`() {
+  @Test fun `interpolates coordinates for close points`() {
+    val images = listOf(img(ofEpochSecond(20)))
+    val points = listOf(TrackPoint(0.01f, 0.01f, 10, ofEpochSecond(10)), TrackPoint(0.03f, 0.03f, 30, ofEpochSecond(30)))
+    val newPoint = Matcher.collect(images, points)[0].second
+    assertThat(newPoint).isEqualTo(TrackPoint(0.02f, 0.02f, 20, ofEpochSecond(20)))
+  }
+
+  @Test fun `skips images between distant points`() {
     val images = listOf(img(ofEpochSecond(20)))
     val points = listOf(TrackPoint(10f, 10f, 10, ofEpochSecond(10)), TrackPoint(30f, 30f, 30, ofEpochSecond(30)))
-    val newPoint = Matcher.collect(images, points)[0].second
-    assertThat(newPoint).isEqualTo(TrackPoint(20f, 20f, 20, ofEpochSecond(20)))
+    assertThat(Matcher.collect(images, points)).isEmpty()
   }
 
   fun img(time: Instant) = Image(File(""), time)

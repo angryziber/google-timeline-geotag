@@ -22,7 +22,10 @@ object Matcher {
 
     while (true) {
       if (image.between(point, nextPoint)) {
-        matchFound(image, TrackPoint.interpolate(point, nextPoint, image.time))
+        if (point.isCloseTo(nextPoint))
+          matchFound(image, TrackPoint.interpolate(point, nextPoint, image.time))
+        else
+          err.println("Skipping $image - $point and $nextPoint are too far apart")
         image = ii.nextOrNull() ?: return
       }
       else {
