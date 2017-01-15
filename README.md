@@ -13,7 +13,7 @@ to generic geotagging software.
   is imprecise when you have long "tracks" with many points, because the file lacks exact timestamps for each point.
   Also, this format doesn't contain any altitude data.
 * **JSON** location history exported using [Google Takeout](https://takeout.google.com/settings/takeout/custom/location_history) -
-  this is a more detailed format containing timestamps of each point, it also includes the altitude. 
+  this is a more detailed format containing timestamps of each point, also including altitude data. 
 
 Although it is huge, **JSON** format is recommended. The program will read your images first and determine the period,
 and then parse the exported JSON (that contains all of your movements since the launch of the service) to find the data
