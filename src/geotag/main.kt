@@ -1,6 +1,6 @@
 package geotag
 
-import geotag.out.GPX
+import geotag.out.Exiv2
 import geotag.out.Output
 
 fun main(arguments: Array<String>) {
@@ -9,7 +9,7 @@ fun main(arguments: Array<String>) {
   val images = app.readImages()
   val points = app.readTimeline(images.first().time, images.last().time)
 
-  val out: Output = GPX
+  val out: Output = Exiv2
   println(out.start())
 
   Matcher.match(images, points) { image, point ->
