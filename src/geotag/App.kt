@@ -36,4 +36,16 @@ class App(val args: Args) {
       }
     }.toList().sortedBy { it.time }
   }
+
+  fun outputMatches(images: List<Image>, points: List<TrackPoint>) {
+    val out = args.output
+    println(out.start())
+
+    Matcher.match(images, points) { image, point ->
+      //println("${image.file} ${image.time} ${point} ${track.name}")
+      println(out.write(image.file, point))
+    }
+
+    println(out.end())
+  }
 }
