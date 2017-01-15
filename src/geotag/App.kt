@@ -13,12 +13,16 @@ class App(val args: Args) {
     val parser = if (args.timelinePath.name.endsWith(".json"))
       JsonTimelineParser(from, until) else KmlTimelineParser()
 
+    err.println("Reading tracks from ${args.timelinePath} using ${parser}...")
+
     val points = parser.parse(args.timelinePath)
     if (args.verbose) points.forEach { println(it) }
     return points
   }
 
   fun readImages(): List<Image> {
+    err.println("Reading image timestamps from ${args.imageDir}...")
+
     val loader = ImageLoader(args.timeZone)
     return args.imageFiles.map { file ->
       try {
