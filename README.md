@@ -15,7 +15,7 @@ to generic geotagging software.
 * **JSON** location history exported using [Google Takeout](https://takeout.google.com/settings/takeout/custom/location_history) -
   this is a more detailed format containing timestamps of each point, it also includes the altitude. 
 
-Although, it is huge, **JSON** format is recommended. The program will read your images first and determine the period,
+Although it is huge, **JSON** format is recommended. The program will read your images first and determine the period,
 and then parse the exported JSON (that contains all of your movements since the launch of the service) to find the data
 for the correct period before geotagging.
 
