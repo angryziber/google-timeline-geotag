@@ -39,6 +39,5 @@ data class Args(val timelinePath: File, val imageDir: File, val timeZone: ZoneId
   val verbose = options.contains("-v")
   val output = if (options.contains("--gpx")) GPX else Exiv2
 
-  val imageFiles: Sequence<File>
-    get() = imageDir.walkTopDown().filter { it.isFile }
+  val imageFiles get() = imageDir.walkTopDown().filter { it.isFile }
 }

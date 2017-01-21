@@ -1,7 +1,10 @@
 buildscript {
-   ext.kotlin_version = '1.0.6'
+   ext.kotlin_version = '1.1.0-beta-17'
    repositories {
      mavenCentral()
+     maven {
+       url 'http://dl.bintray.com/kotlin/kotlin-eap-1.1'
+     }
    }
 
    dependencies {
@@ -13,6 +16,9 @@ repositories {
   mavenCentral()
   maven {
     url 'https://repository.apache.org/content/repositories/snapshots/'
+  }
+  maven {
+    url 'http://dl.bintray.com/kotlin/kotlin-eap-1.1'
   }
 }
 
@@ -30,7 +36,7 @@ sourceSets {
 }
 
 dependencies {
-  compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
   compile 'org.apache.commons:commons-imaging:1.0-SNAPSHOT'
   compile 'com.google.code.gson:gson:2.8.0'
   testCompile 'org.assertj:assertj-core:3.6.1'
