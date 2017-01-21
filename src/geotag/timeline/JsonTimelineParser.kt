@@ -41,8 +41,8 @@ class JsonTimelineParser(val from: Instant, val until: Instant) : TimelineParser
 
   fun JsonReader.nextObject(): JsonObject = gson.fromJson(this, JsonObject::class.java)
 
-  val JsonObject.time: Instant get() = this["timestampMs"].instant
+  val JsonObject.time get() = this["timestampMs"].instant
 
-  val JsonElement.instant: Instant get() = Instant.ofEpochMilli(asLong)
-  val JsonElement.e7: Float get() = asFloat / 10000000
+  val JsonElement.instant get() = Instant.ofEpochMilli(asLong)
+  val JsonElement.e7 get() = asFloat / 10000000
 }
