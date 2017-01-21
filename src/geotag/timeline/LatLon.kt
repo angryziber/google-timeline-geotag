@@ -2,7 +2,7 @@ package geotag.timeline
 
 import java.lang.Math.abs
 
-abstract class LatLon(val value: Float) {
+sealed class LatLon(val value: Float) {
   val abs = abs(value)
 
   abstract val ref: Char
