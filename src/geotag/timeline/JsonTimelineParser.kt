@@ -37,7 +37,7 @@ class JsonTimelineParser(val from: Instant, val until: Instant) : TimelineParser
     return result
   }
 
-  private fun dropInaccuratePoints(points: MutableList<TrackPoint>) {
+  fun dropInaccuratePoints(points: MutableList<TrackPoint>) {
     if (points.isEmpty()) return
     var last: TrackPoint = points[0]
 
@@ -48,7 +48,7 @@ class JsonTimelineParser(val from: Instant, val until: Instant) : TimelineParser
 
       val d = point.distanceTo(last)
       if (point.acc > 1000 && d > point.acc) {
-        val nextAccurate = nextAccuratePoint(points, i-1, d)
+        val nextAccurate = nextAccurateIndex(points, i-1, d)
         if (nextAccurate != null) {
           val inaccurate = points.subList(i, nextAccurate)
           inaccurate.forEach { err.println("Dropping inaccurate $it") }
@@ -59,15 +59,17 @@ class JsonTimelineParser(val from: Instant, val until: Instant) : TimelineParser
     }
   }
 
-  private fun nextAccuratePoint(points: List<TrackPoint>, start: Int, distanceThreshold: Double): Int? {
+  private fun nextAccurateIndex(points: List<TrackPoint>, start: Int, distanceThreshold: Double): Int? {
     val last = points[start]
     val end = min(start + 30, points.size)
     var i = start
+    var prev = last
     while (++i < end) {
       val point = points[i]
       if (point.acc == null) break
       val d = point.distanceTo(last)
-      if (point.acc < last.acc!! && distanceThreshold - d > 1000) return i
+      if (point.acc < prev.acc!! && distanceThreshold - d > 1000) return i
+      prev = point
     }
     return null
   }
