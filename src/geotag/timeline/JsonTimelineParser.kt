@@ -6,8 +6,9 @@ import com.google.gson.JsonObject
 import com.google.gson.stream.JsonReader
 import java.io.File
 import java.io.IOException
+import java.lang.Math.min
+import java.lang.System.err
 import java.time.Instant
-import java.util.*
 
 class JsonTimelineParser(val from: Instant, val until: Instant) : TimelineParser {
   val gson = Gson()
@@ -32,7 +33,43 @@ class JsonTimelineParser(val from: Instant, val until: Instant) : TimelineParser
 
     result.reverse()
     if (last != null) result += createPoint(last!!, last!!.time)
+    dropInaccuratePoints(result)
     return result
+  }
+
+  private fun dropInaccuratePoints(points: MutableList<TrackPoint>) {
+    if (points.isEmpty()) return
+    var last: TrackPoint = points[0]
+
+    var i = 0
+    while (++i < points.size) {
+      val point = points[i]
+      if (point.acc == null) continue
+
+      val d = point.distanceTo(last)
+      if (point.acc > 1000 && d > point.acc) {
+        val nextAccurate = nextAccuratePoint(points, i-1, d)
+        if (nextAccurate != null) {
+          val inaccurate = points.subList(i, nextAccurate)
+          inaccurate.forEach { err.println("Dropping inaccurate $it") }
+          inaccurate.clear()
+        }
+      }
+      last = point
+    }
+  }
+
+  private fun nextAccuratePoint(points: List<TrackPoint>, start: Int, distanceThreshold: Double): Int? {
+    val last = points[start]
+    val end = min(start + 30, points.size)
+    var i = start
+    while (++i < end) {
+      val point = points[i]
+      if (point.acc == null) break
+      val d = point.distanceTo(last)
+      if (point.acc < last.acc!! && distanceThreshold - d > 1000) return i
+    }
+    return null
   }
 
   private fun createPoint(o: JsonObject, time: Instant): TrackPoint {

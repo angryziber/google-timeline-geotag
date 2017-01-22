@@ -1,5 +1,6 @@
 package geotag.timeline
 
+import java.lang.Math.toRadians
 import java.time.Duration
 import java.time.Instant
 
@@ -11,6 +12,22 @@ data class TrackPoint(
   val acc: Int? = null
 ) {
   constructor(lat: Float, lon: Float, alt: Int? = null, time: Instant, acc: Int? = null) : this(Latitude(lat), Longitude(lon), alt, time, acc)
+
+  fun distanceTo(p: TrackPoint): Double {
+    val R = 6371e3
+
+    val φ1 = toRadians(lat.value.toDouble())
+    val φ2 = toRadians(p.lat.value.toDouble())
+    val Δφ = toRadians((p.lat.value - lat.value).toDouble())
+    val Δλ = toRadians((p.lon.value - lon.value).toDouble())
+
+    val a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+            Math.cos(φ1) * Math.cos(φ2) *
+            Math.sin(Δλ/2) * Math.sin(Δλ/2)
+    val c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
+
+    return R * c
+  }
 
   fun isCloseTo(p: TrackPoint) = Math.abs(lat.value - p.lat.value) <= 0.1 && Math.abs(lon.value - p.lon.value) <= 0.1
 
