@@ -36,7 +36,7 @@ data class TrackPoint(
       var c = Duration.between(p1.time, time).toMillis().toFloat() / Duration.between(p1.time, p2.time).toMillis()
       if (p1.acc != null && p2.acc != null) {
         if (p1.acc < p2.acc) c *= p1.acc.log() / p2.acc.log()
-        if (p2.acc < p1.acc) c = c + (1 - c) * (1 - p2.acc.log() / p1.acc.log())
+        if (p2.acc < p1.acc) c += (1 - c) * (1 - p2.acc.log() / p1.acc.log())
       }
       return TrackPoint(
           interpolate(p1.lat, p2.lat, c),
