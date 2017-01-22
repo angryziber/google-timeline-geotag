@@ -16,14 +16,14 @@ class TrackPointTest {
     val p1 = TrackPoint(10f, 10f, 100, ofEpochSecond(100), acc=100)
     val p2 = TrackPoint(12f, 12f, 120, ofEpochSecond(200), acc=1000)
     assertThat(TrackPoint.interpolate(p1, p2, ofEpochSecond(150)))
-        .isEqualTo(TrackPoint(10.1f, 10.1f, 101, ofEpochSecond(150), acc=1000))
+        .isEqualTo(TrackPoint(10.666667f, 10.666667f, 106, ofEpochSecond(150), acc=1000))
   }
 
   @Test fun `interpolates biasing higher accuracy of 2nd point`() {
     val p1 = TrackPoint(10f, 10f, 100, ofEpochSecond(100), acc=1000)
     val p2 = TrackPoint(12f, 12f, 120, ofEpochSecond(200), acc=100)
     assertThat(TrackPoint.interpolate(p1, p2, ofEpochSecond(150)))
-        .isEqualTo(TrackPoint(11.9f, 11.9f, 119, ofEpochSecond(150), acc=1000))
+        .isEqualTo(TrackPoint(11.333333f, 11.333333f, 113, ofEpochSecond(150), acc=1000))
   }
 
   @Test

@@ -35,8 +35,8 @@ data class TrackPoint(
     fun interpolate(p1: geotag.timeline.TrackPoint, p2: geotag.timeline.TrackPoint, time: Instant): geotag.timeline.TrackPoint {
       var c = Duration.between(p1.time, time).toMillis().toFloat() / Duration.between(p1.time, p2.time).toMillis()
       if (p1.acc != null && p2.acc != null) {
-        if (p1.acc < p2.acc) c *= p1.acc.toFloat() / p2.acc
-        if (p2.acc < p1.acc) c = c + (1 - c) * (1 - p2.acc.toFloat() / p1.acc)
+        if (p1.acc < p2.acc) c *= p1.acc.log() / p2.acc.log()
+        if (p2.acc < p1.acc) c = c + (1 - c) * (1 - p2.acc.log() / p1.acc.log())
       }
       return TrackPoint(
           interpolate(p1.lat, p2.lat, c),
@@ -48,5 +48,6 @@ data class TrackPoint(
 
     private fun interpolate(v1: LatLon, v2: LatLon, c: Float) = interpolate(v1.value, v2.value, c)
     private fun interpolate(v1: Float, v2: Float, c: Float) = v1 + (v2 - v1) * c
+    private fun Int.log() = Math.log10(toDouble()).toFloat()
   }
 }
