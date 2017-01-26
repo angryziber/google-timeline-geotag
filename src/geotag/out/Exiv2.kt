@@ -6,7 +6,7 @@ import java.io.File
 
 object Exiv2 : Output {
   override fun write(file: File, point: TrackPoint): String {
-    var result = "exiv2 " +
+    var result = "exiv2 -k " +
       "-M'set Exif.GPSInfo.GPSLatitudeRef ${point.lat.ref}' " +
       "-M'set Exif.GPSInfo.GPSLatitude ${point.lat.deg}' " +
       "-M'set Exif.GPSInfo.GPSLongitudeRef ${point.lon.ref}' " +

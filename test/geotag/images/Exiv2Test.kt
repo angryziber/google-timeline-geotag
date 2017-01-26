@@ -10,7 +10,7 @@ import java.time.Instant.now
 class Exiv2Test {
   @Test fun `outputs exiv2`() {
     val cmd = Exiv2.write(File("file.cr2"), TrackPoint(59.5050f, 24.3333333f, 100, now()))
-    assertThat(cmd).isEqualTo("exiv2 " +
+    assertThat(cmd).isEqualTo("exiv2 -k " +
         "-M'set Exif.GPSInfo.GPSLatitudeRef N' " +
         "-M'set Exif.GPSInfo.GPSLatitude 59/1 30/1 18003/1000' " +
         "-M'set Exif.GPSInfo.GPSLongitudeRef E' " +
