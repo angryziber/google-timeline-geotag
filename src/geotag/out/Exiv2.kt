@@ -16,7 +16,7 @@ object Exiv2 : Output {
       "-M'set Exif.GPSInfo.GPSAltitudeRef 0' " +
       "-M'set Exif.GPSInfo.GPSAltitude ${point.alt}/1' "
 
-    return result + file
+    return "$result'$file'"
   }
 
   private val LatLon.deg: String get() = "${d}/1 ${m}/1 ${(s * 1000).toInt()}/1000"

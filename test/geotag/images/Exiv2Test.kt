@@ -17,6 +17,6 @@ class Exiv2Test {
         "-M'set Exif.GPSInfo.GPSLongitude 24/1 20/1 2/1000' " +
         "-M'set Exif.GPSInfo.GPSAltitudeRef 0' " +
         "-M'set Exif.GPSInfo.GPSAltitude 100/1' " +
-        "file.cr2")
+        "'file.cr2'")
   }
 }
