@@ -37,7 +37,7 @@ If the times of your photos are incorrect, I recommend shifting them first with 
 
 ## Building
 
-The code is written in Kotlin, but the only requirement is Java 8 (e.g. *openjdk8*)
+The code is written in Kotlin, but the only requirement is Java 8 (e.g. *openjdk8* or *Oracle JDK 8*)
 
 `./gradlew assemble`
 
